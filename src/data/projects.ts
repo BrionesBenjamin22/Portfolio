@@ -102,4 +102,74 @@ export const projects = [
       },
     ],
   },
+
+  {
+  id: "portfolio",
+  title: "Portfolio personal",
+  status: "Proyecto personal",
+  featured: false,
+  shortDescription:
+    "Sitio desarrollado para presentar proyectos, arquitectura técnica y experiencia profesional con una interfaz enfocada en claridad, navegación y estética tipo producto SaaS.",
+
+  tags: ["Astro", "TailwindCSS", "Componentización", "Responsive UI"],
+
+  metrics: [],
+
+  problem:
+    "Necesitaba una forma de presentar proyectos y experiencia de manera clara, profesional y alineada a mi perfil técnico, evitando un portfolio genérico o sobrecargado.",
+
+  solution:
+    "Desarrollé un portfolio con Astro y Tailwind enfocado en mostrar sistemas reales, arquitectura, stack técnico y contacto profesional mediante una experiencia visual simple, sobria y orientada a producto.",
+
+  architecture: {
+    title: "Sitio estructurado por componentes",
+    description:
+      "La interfaz fue organizada en componentes reutilizables para mantener consistencia visual, facilitar iteraciones y escalar secciones sin duplicar estilos.",
+    layers: [
+      {
+        step: "01",
+        name: "Layouts",
+        description:
+          "Definen la estructura base de las páginas y la navegación principal."
+      },
+      {
+        step: "02",
+        name: "Sections",
+        description:
+          "Agrupan bloques funcionales como proyectos, contacto y detalle dinámico."
+      },
+      {
+        step: "03",
+        name: "UI Components",
+        description:
+          "Componentes reutilizables como cards, badges y headers para mantener consistencia."
+      },
+      {
+        step: "04",
+        name: "Data",
+        description:
+          "Los proyectos y contenidos principales se organizan desde estructuras de datos para simplificar el renderizado."
+      }
+    ],
+    flow: "Pages → Layouts → Sections → UI Components"
+  },
+
+  stack: [
+    {
+      name: "Framework",
+      description:
+        "Astro para estructurar páginas, componentes y contenido estático de forma eficiente."
+    },
+    {
+      name: "Estilos",
+      description:
+        "Tailwind CSS para construir una interfaz consistente, modular y orientada a producto."
+    },
+    {
+      name: "Enfoque",
+      description:
+        "Diseño responsive, componentización y navegación clara para presentar proyectos de forma profesional."
+    }
+  ]
+}
 ] as const;
