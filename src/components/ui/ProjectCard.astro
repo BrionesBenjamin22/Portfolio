@@ -1,0 +1,96 @@
+---
+import Badge from "./Badge.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  status?: string;
+  tags?: string[];
+  featured?: boolean;
+  metrics?: { label: string; value: string }[];
+}
+
+const {
+  id,
+  title,
+  description,
+  status = "En desarrollo",
+  tags = [],
+  featured = false,
+  metrics = []
+} = Astro.props;
+---
+
+<article
+  data-project-card={id}
+  class:list={[
+    "rounded-2xl border p-6 transition-all duration-200 hover:-translate-y-1",
+    featured
+      ? "border-slate-700 bg-slate-900 shadow-[0_0_0_1px_rgba(148,163,184,0.08)] hover:border-slate-500"
+      : "border-slate-800 bg-slate-900/60 hover:border-slate-700"
+  ]}
+>
+  <div class="flex items-start justify-between gap-4">
+    <div class="space-y-3">
+      {featured && (
+        <Badge variant="featured">
+          Proyecto destacado
+        </Badge>
+      )}
+
+      <h3 class="text-xl font-semibold text-slate-100">
+        {title}
+      </h3>
+    </div>
+
+    <Badge variant="status">
+      {status}
+    </Badge>
+  </div>
+
+  <p class="mt-4 text-slate-400 leading-7">
+    {description}
+  </p>
+
+  {featured && metrics.length > 0 && (
+    <div class="mt-6 rounded-2xl border border-slate-800 bg-slate-950/80 p-4">
+      <p class="text-xs uppercase tracking-[0.2em] text-slate-500">
+        Snapshot del producto
+      </p>
+
+      <div class="mt-4 grid grid-cols-3 gap-3">
+        {metrics.map((metric) => (
+          <div class="rounded-xl border border-slate-800 bg-slate-900/70 p-3">
+            <p class="text-lg font-bold text-slate-100">{metric.value}</p>
+            <p class="mt-1 text-xs text-slate-500">{metric.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {tags.length > 0 && (
+    <div class="mt-5 flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <Badge>{tag}</Badge>
+      ))}
+    </div>
+  )}
+
+  <div class="mt-6 flex items-center justify-between">
+    <button
+      type="button"
+      class="project-select-btn inline-flex items-center text-sm font-medium transition-colors text-slate-200 hover:text-white"
+      data-project-select={id}
+    >
+      Ver detalle →
+    </button>
+
+    {featured && (
+      <span class="text-xs uppercase tracking-[0.2em] text-slate-500">
+        Principal
+      </span>
+    )}
+  </div>
+</article>

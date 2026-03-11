@@ -1,0 +1,61 @@
+---
+import SectionHeader from "../ui/SectionHeader.astro";
+import InfoCard from "../ui/InfoCard.astro";
+---
+
+<section class="mt-20 space-y-8">
+  <SectionHeader
+    eyebrow="Arquitectura"
+    title="Backend organizado por capas"
+    description="El backend fue estructurado con una separación por capas para mantener claridad en las responsabilidades, facilitar la escalabilidad y ordenar la lógica del sistema."
+  />
+
+  <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <InfoCard>
+      <p class="text-sm uppercase tracking-[0.2em] text-slate-500">01</p>
+      <h3 class="mt-3 text-lg font-semibold text-slate-100">Routes</h3>
+      <p class="mt-2 text-sm leading-6 text-slate-400">
+        Definen los endpoints del sistema y reciben las solicitudes externas.
+      </p>
+    </InfoCard>
+
+    <InfoCard>
+      <p class="text-sm uppercase tracking-[0.2em] text-slate-500">02</p>
+      <h3 class="mt-3 text-lg font-semibold text-slate-100">Controllers</h3>
+      <p class="mt-2 text-sm leading-6 text-slate-400">
+        Orquestan las acciones del sistema y coordinan el flujo entre rutas y servicios.
+      </p>
+    </InfoCard>
+
+    <InfoCard>
+      <p class="text-sm uppercase tracking-[0.2em] text-slate-500">03</p>
+      <h3 class="mt-3 text-lg font-semibold text-slate-100">Services</h3>
+      <p class="mt-2 text-sm leading-6 text-slate-400">
+        Contienen la lógica de negocio y el acceso a datos necesario para cada operación.
+      </p>
+    </InfoCard>
+
+    <InfoCard>
+      <p class="text-sm uppercase tracking-[0.2em] text-slate-500">04</p>
+      <h3 class="mt-3 text-lg font-semibold text-slate-100">Modules / Models</h3>
+      <p class="mt-2 text-sm leading-6 text-slate-400">
+        Representan las entidades del sistema y permiten mapear la base de datos con ORM.
+      </p>
+    </InfoCard>
+  </div>
+
+  <InfoCard className="p-6">
+    <h3 class="text-lg font-semibold text-slate-100">
+      Flujo principal del backend
+    </h3>
+
+    <p class="mt-4 text-slate-400 leading-7">
+      Routes → Controllers → Services → Models
+    </p>
+
+    <p class="mt-2 text-sm text-slate-500">
+      Esta estructura permite separar responsabilidades y mantener un flujo más claro
+      entre exposición de endpoints, orquestación, lógica de negocio y persistencia.
+    </p>
+  </InfoCard>
+</section>

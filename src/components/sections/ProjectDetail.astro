@@ -1,0 +1,260 @@
+---
+import { projects } from "../../data/projects";
+---
+
+<section id="project-detail" class="mt-20">
+  <div
+    id="project-detail-content"
+    class="fade-in-section rounded-3xl border border-slate-700 bg-slate-900/70 p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+    >
+    <p class="text-sm uppercase tracking-[0.2em] text-slate-500">
+      Detalle del proyecto
+    </p>
+
+    <h2 class="mt-4 text-3xl font-bold text-slate-100">
+      Seleccioná un proyecto
+    </h2>
+
+    <p class="mt-4 max-w-2xl text-slate-400 leading-7">
+      Elegí una de las cards superiores para ver métricas, problema, solución,
+      arquitectura y stack técnico.
+    </p>
+  </div>
+</section>
+
+<script define:vars={{ projects }}>
+  const detailSection = document.getElementById("project-detail");
+  const detailContainer = document.getElementById("project-detail-content");
+  const buttons = document.querySelectorAll("[data-project-select]");
+
+  let activeProjectId = null;
+
+  const getEmptyStateMarkup = () => `
+    <p class="text-sm uppercase tracking-[0.2em] text-slate-500">
+      Detalle del proyecto
+    </p>
+
+    <h2 class="mt-4 text-3xl font-bold text-slate-100">
+      Seleccioná un proyecto
+    </h2>
+
+    <p class="mt-4 max-w-2xl text-slate-400 leading-7">
+      Elegí una de las cards superiores para ver métricas, problema, solución,
+      arquitectura y stack técnico.
+    </p>
+  `;
+
+  const setActiveCard = (projectId) => {
+    const cards = document.querySelectorAll("[data-project-card]");
+    const buttons = document.querySelectorAll(".project-select-btn");
+
+    cards.forEach((card) => {
+      card.classList.remove(
+        "border-blue-500/50",
+        "bg-slate-900",
+        "shadow-[0_0_0_1px_rgba(59,130,246,0.15)]",
+        "scale-[1.01]"
+        );
+    });
+
+    buttons.forEach((btn) => {
+      btn.innerHTML = "Ver detalle →";
+      btn.classList.remove("text-blue-300");
+      btn.classList.add("text-slate-200");
+    });
+
+    if (!projectId) return;
+
+    const activeCard = document.querySelector(`[data-project-card="${projectId}"]`);
+    const activeButton = document.querySelector(`[data-project-select="${projectId}"]`);
+
+    if (activeCard) {
+      activeCard.classList.add(
+        "border-blue-500/60",
+        "bg-slate-900",
+        "scale-[1.01]",
+        "shadow-[0_10px_30px_rgba(59,130,246,0.15)]"
+        );
+    }
+
+    if (activeButton) {
+      activeButton.innerHTML = "✓ Seleccionado";
+      activeButton.classList.remove("text-slate-200");
+      activeButton.classList.add("text-blue-300");
+    }
+  };
+
+  const animateDetailBlocks = () => {
+    const blocks = detailContainer.querySelectorAll("[data-detail-block]");
+
+    blocks.forEach((block, index) => {
+      block.classList.remove("detail-block-visible");
+
+      setTimeout(() => {
+        block.classList.add("detail-block-visible");
+      }, 80 * (index + 1));
+    });
+  };
+
+  const renderMetrics = (metrics) => {
+    if (!metrics?.length) return "";
+
+    return `
+      <section data-detail-block class="detail-block mt-10 space-y-4">
+        <h3 class="text-2xl font-semibold text-slate-100">Métricas</h3>
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          ${metrics
+            .map(
+              (metric) => `
+                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
+                  <p class="text-3xl font-bold text-slate-100">${metric.value}</p>
+                  <h4 class="mt-3 text-base font-semibold text-slate-200">${metric.label}</h4>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    `;
+  };
+
+  const renderArchitecture = (architecture) => {
+    if (!architecture) return "";
+
+    return `
+      <section data-detail-block class="detail-block mt-10 space-y-6">
+        <div class="space-y-3">
+          <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Arquitectura</p>
+          <h3 class="text-2xl font-semibold text-slate-100">${architecture.title}</h3>
+          <p class="text-slate-400 leading-7">${architecture.description}</p>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          ${architecture.layers
+            .map(
+              (layer) => `
+                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
+                  <p class="text-sm uppercase tracking-[0.2em] text-slate-500">${layer.step}</p>
+                  <h4 class="mt-3 text-lg font-semibold text-slate-100">${layer.name}</h4>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">${layer.description}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
+          <h4 class="text-lg font-semibold text-slate-100">Flujo principal del backend</h4>
+          <p class="mt-4 text-slate-400 leading-7">${architecture.flow}</p>
+        </div>
+      </section>
+    `;
+  };
+
+  const renderStack = (stack) => {
+    if (!stack?.length) return "";
+
+    return `
+      <section data-detail-block class="detail-block mt-10 space-y-4">
+        <h3 class="text-2xl font-semibold text-slate-100">Stack técnico</h3>
+        <div class="grid gap-4 md:grid-cols-3">
+          ${stack
+            .map(
+              (item) => `
+                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
+                  <h4 class="text-lg font-semibold text-slate-100">${item.name}</h4>
+                  <p class="mt-3 text-slate-400 leading-7">${item.description}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    `;
+  };
+
+  const renderProject = (project) => {
+    detailContainer.classList.remove("visible");
+    detailContainer.innerHTML = "";
+
+    requestAnimationFrame(() => {
+      detailContainer.innerHTML = `
+        <div class="mb-6 h-px w-full bg-gradient-to-r from-blue-400/60 via-slate-700 to-transparent"></div>
+        <div data-detail-block class="detail-block">
+          <p class="text-sm uppercase tracking-[0.2em] text-slate-500">
+            Detalle del proyecto
+          </p>
+
+          <div class="mt-4 flex flex-wrap items-center gap-3">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100">${project.title}</h2>
+            <span class="rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-400">
+              ${project.status}
+            </span>
+          </div>
+
+          <p class="mt-4 max-w-3xl text-slate-400 leading-7">
+            ${project.shortDescription}
+          </p>
+        </div>
+
+        <section data-detail-block class="detail-block mt-10 grid gap-6 lg:grid-cols-2">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
+            <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Problema</p>
+            <h3 class="mt-4 text-2xl font-semibold text-slate-100">Contexto del proyecto</h3>
+            <p class="mt-4 text-slate-400 leading-7">${project.problem}</p>
+          </article>
+
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
+            <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Solución</p>
+            <h3 class="mt-4 text-2xl font-semibold text-slate-100">Respuesta propuesta</h3>
+            <p class="mt-4 text-slate-400 leading-7">${project.solution}</p>
+          </article>
+        </section>
+
+        ${renderMetrics(project.metrics)}
+        ${renderArchitecture(project.architecture)}
+        ${renderStack(project.stack)}
+      `;
+
+      detailContainer.classList.add("visible");
+      animateDetailBlocks();
+      setActiveCard(project.id);
+
+      detailSection?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  };
+
+  const clearProject = () => {
+    activeProjectId = null;
+    setActiveCard(null);
+
+    detailContainer.classList.remove("visible");
+    detailContainer.innerHTML = "";
+
+    requestAnimationFrame(() => {
+      detailContainer.innerHTML = getEmptyStateMarkup();
+      detailContainer.classList.add("visible");
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const projectId = button.getAttribute("data-project-select");
+      if (!projectId) return;
+
+      if (activeProjectId === projectId) {
+        clearProject();
+        return;
+      }
+
+      const project = projects.find((item) => item.id === projectId);
+      if (!project) return;
+
+      activeProjectId = projectId;
+      renderProject(project);
+    });
+  });
+</script>

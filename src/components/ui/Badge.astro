@@ -1,0 +1,20 @@
+---
+interface Props {
+  variant?: "default" | "status" | "featured";
+}
+
+const { variant = "default" } = Astro.props;
+
+const base =
+  "inline-flex items-center rounded-full px-3 py-1 text-xs tracking-wide";
+
+const variants = {
+  default: "border border-slate-600 bg-slate-900/80 text-slate-200",
+  status: "border border-slate-600 bg-slate-900/80 text-slate-200",
+  featured: "border border-blue-500/30 bg-blue-500/10 text-blue-300"
+};
+---
+
+<span class={`${base} ${variants[variant]}`}>
+  <slot />
+</span>

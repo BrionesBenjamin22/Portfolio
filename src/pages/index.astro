@@ -1,17 +1,43 @@
 ---
-
+import "../styles/global.css";
+import MainLayout from "../layouts/MainLayout.astro";
+import ProjectsOverview from "../components/sections/ProjectsOverview.astro";
+import ProjectDetail from "../components/sections/ProjectDetail.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+	<section class="space-y-8">
+	<h1 class="text-5xl font-bold tracking-tight">
+		Benjamín Briones
+	</h1>
+
+	<p class="text-xl text-slate-300 max-w-xl leading-relaxed">
+		Backend Developer enfocado en APIs y sistemas de gestión.
+	</p>
+
+	<p class="text-slate-400 max-w-xl leading-relaxed">
+		Desarrollo soluciones orientadas a lógica de negocio,
+		organización operativa y construcción de productos reales.
+	</p>
+	</section>
+	<div class="flex flex-wrap gap-3 pt-4 text-sm text-slate-300">
+	<span class="rounded-full border border-slate-700 px-3 py-1">
+		Backend APIs
+	</span>
+
+	<span class="rounded-full border border-slate-700 px-3 py-1">
+		Sistemas de gestión
+	</span>
+
+	<span class="rounded-full border border-slate-700 px-3 py-1">
+		Arquitectura backend
+	</span>
+
+	<span class="rounded-full border border-slate-700 px-3 py-1">
+		Lógica de negocio
+	</span>
+	</div>
+
+  <ProjectsOverview />
+  <ProjectDetail />
+</MainLayout>

@@ -1,0 +1,38 @@
+---
+import SectionHeader from "../ui/SectionHeader.astro";
+import MetricCard from "../ui/MetricCard.astro";
+---
+
+<section class="mt-20 space-y-8">
+  <SectionHeader
+    eyebrow="Métricas del producto"
+    title="Alcance actual del sistema"
+    description="Una vista rápida del alcance técnico y funcional del sistema de gestión para laboratorio en su estado actual."
+  />
+
+  <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <MetricCard
+      value="5"
+      title="Módulos funcionales"
+      description="Cobertura de áreas clave como administración, actividades, financiamiento, vinculación y búsqueda unificada."
+    />
+
+    <MetricCard
+      value="52"
+      title="Entidades de datos"
+      description="Modelo de datos amplio para representar relaciones, operaciones y trazabilidad dentro del sistema."
+    />
+
+    <MetricCard
+      value="40+"
+      title="Endpoints backend"
+      description="Operaciones CRUD y endpoints específicos para soportar la lógica del sistema y su crecimiento funcional."
+    />
+
+    <MetricCard
+      value="3"
+      title="Flujos críticos cubiertos"
+      description="Gestión de activos, asignación de personal a proyectos y búsqueda transversal de información del sistema."
+    />
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+import SectionHeader from "../ui/SectionHeader.astro";
+import ProjectCard from "../ui/ProjectCard.astro";
+import { projects } from "../../data/projects";
+---
+
+<section id="proyectos" class="mt-20 space-y-8">
+  <SectionHeader
+    eyebrow="Proyectos principales"
+    title="Productos y sistemas desarrollados"
+    description="Explorá los sistemas desarrollados y su arquitectura técnica."
+  />
+
+  <div class="grid gap-4 lg:grid-cols-2">
+    {projects.map((project) => (
+      <ProjectCard
+        id={project.id}
+        title={project.title}
+        status={project.status}
+        description={project.shortDescription}
+        tags={[...project.tags]}
+        featured={project.featured}
+        metrics={[...project.metrics]}
+      />
+    ))}
+  </div>
+</section>

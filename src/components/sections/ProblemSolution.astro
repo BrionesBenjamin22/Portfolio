@@ -1,0 +1,39 @@
+---
+import InfoCard from "../ui/InfoCard.astro";
+---
+
+<section class="mt-20 grid gap-6 lg:grid-cols-2">
+  <InfoCard className="p-6">
+    <span class="text-sm uppercase tracking-[0.2em] text-slate-500">
+      Problema
+    </span>
+
+    <h2 class="mt-4 text-2xl font-bold text-slate-100">
+      Procesos manuales y dispersión de información
+    </h2>
+
+    <p class="mt-4 text-slate-400 leading-7">
+      El laboratorio lleva actualmente un registro manual de sus activos y de
+      gran parte de sus actividades. Esto dificulta la administración de la
+      información, ralentiza las consultas y complica el seguimiento de los
+      datos en el tiempo.
+    </p>
+  </InfoCard>
+
+  <InfoCard className="p-6">
+    <span class="text-sm uppercase tracking-[0.2em] text-slate-500">
+      Solución
+    </span>
+
+    <h2 class="mt-4 text-2xl font-bold text-slate-100">
+      Centralización, consulta rápida y trazabilidad
+    </h2>
+
+    <p class="mt-4 text-slate-400 leading-7">
+      El sistema fue diseñado para centralizar la información del laboratorio en
+      un único entorno, facilitando su administración, consulta y organización.
+      Además, incorpora trazabilidad sobre las acciones realizadas dentro de la
+      plataforma, mejorando el control operativo y la visibilidad del sistema.
+    </p>
+  </InfoCard>
+</section>
