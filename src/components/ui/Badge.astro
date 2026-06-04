@@ -1,9 +1,10 @@
 ---
 interface Props {
   variant?: "default" | "status" | "featured";
+  [key: string]: unknown;
 }
 
-const { variant = "default" } = Astro.props;
+const { variant = "default", ...attrs } = Astro.props;
 
 const base =
   "inline-flex items-center rounded-full px-3 py-1 text-xs tracking-wide";
@@ -15,6 +16,6 @@ const variants = {
 };
 ---
 
-<span class={`${base} ${variants[variant]}`}>
+<span class={`${base} ${variants[variant]}`} {...attrs}>
   <slot />
 </span>

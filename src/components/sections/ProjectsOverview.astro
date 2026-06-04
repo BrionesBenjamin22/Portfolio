@@ -7,20 +7,27 @@ import { projects } from "../../data/projects";
 <section id="proyectos" class="mt-20 space-y-8">
   <SectionHeader
     eyebrow="Proyectos principales"
+    eyebrowEn="Main projects"
     title="Productos y sistemas desarrollados"
-    description="Explorá los sistemas desarrollados y su arquitectura técnica."
+    titleEn="Products and systems built"
+    description="Explora los sistemas desarrollados y su arquitectura tecnica."
+    descriptionEn="Explore the systems I have built and their technical architecture."
   />
 
   <div class="grid gap-4 lg:grid-cols-2">
-    {projects.map((project) => (
+    {projects.map((project, index) => (
       <ProjectCard
         id={project.id}
         title={project.title}
+        titleEn={project.i18n?.en.title}
         status={project.status}
+        statusEn={project.i18n?.en.status}
         description={project.shortDescription}
+        descriptionEn={project.i18n?.en.shortDescription}
         tags={[...project.tags]}
+        tagsEn={[...(project.i18n?.en.tags ?? project.tags)]}
         featured={project.featured}
-        metrics={[...project.metrics]}
+        index={index}
       />
     ))}
   </div>

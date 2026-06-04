@@ -1,29 +1,47 @@
 ---
 interface Props {
   eyebrow: string;
+  eyebrowEn?: string;
   title: string;
+  titleEn?: string;
   description: string;
+  descriptionEn?: string;
   maxWidth?: string;
 }
 
 const {
   eyebrow,
+  eyebrowEn = eyebrow,
   title,
+  titleEn = title,
   description,
+  descriptionEn = description,
   maxWidth = "max-w-3xl"
 } = Astro.props;
 ---
 
 <div class:list={[maxWidth, "space-y-4"]}>
-  <span class="text-sm uppercase tracking-[0.2em] text-slate-500">
+  <span
+    class="text-sm uppercase tracking-[0.2em] text-slate-500"
+    data-lang-es={eyebrow}
+    data-lang-en={eyebrowEn}
+  >
     {eyebrow}
   </span>
 
-  <h2 class="text-3xl md:text-4xl font-bold text-slate-100">
+  <h2
+    class="text-3xl md:text-4xl font-bold text-slate-100"
+    data-lang-es={title}
+    data-lang-en={titleEn}
+  >
     {title}
   </h2>
 
-  <p class="text-slate-400 text-base md:text-lg leading-7">
+  <p
+    class="text-slate-400 text-base md:text-lg leading-7"
+    data-lang-es={description}
+    data-lang-en={descriptionEn}
+  >
     {description}
   </p>
 </div>

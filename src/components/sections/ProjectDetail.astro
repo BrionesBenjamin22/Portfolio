@@ -2,23 +2,11 @@
 import { projects } from "../../data/projects";
 ---
 
-<section id="project-detail" class="mt-20">
+<section id="project-detail" class="mt-20 hidden">
   <div
     id="project-detail-content"
-    class="fade-in-section rounded-3xl border border-slate-700 bg-slate-900/70 p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
-    >
-    <p class="text-sm uppercase tracking-[0.2em] text-slate-500">
-      Detalle del proyecto
-    </p>
-
-    <h2 class="mt-4 text-3xl font-bold text-slate-100">
-      Seleccioná un proyecto
-    </h2>
-
-    <p class="mt-4 max-w-2xl text-slate-400 leading-7">
-      Elegí una de las cards superiores para ver métricas, problema, solución,
-      arquitectura y stack técnico.
-    </p>
+    class="fade-in-section rounded-3xl border border-slate-700 bg-slate-900/70 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.35)] md:p-10"
+  >
   </div>
 </section>
 
@@ -28,21 +16,24 @@ import { projects } from "../../data/projects";
   const buttons = document.querySelectorAll("[data-project-select]");
 
   let activeProjectId = null;
+  let currentLanguage = window.localStorage.getItem("portfolio-language") === "en" ? "en" : "es";
 
-  const getEmptyStateMarkup = () => `
-    <p class="text-sm uppercase tracking-[0.2em] text-slate-500">
-      Detalle del proyecto
-    </p>
+  const getDetailButtonMarkup = () => {
+    const label = currentLanguage === "en" ? "View details" : "Ver detalle";
+    return `<span data-lang-es="Ver detalle" data-lang-en="View details">${label}</span><span class="ml-2 transition-transform duration-300">-&gt;</span>`;
+  };
 
-    <h2 class="mt-4 text-3xl font-bold text-slate-100">
-      Seleccioná un proyecto
-    </h2>
+  const getLocalizedProject = (project) => {
+    if (currentLanguage !== "en") return project;
 
-    <p class="mt-4 max-w-2xl text-slate-400 leading-7">
-      Elegí una de las cards superiores para ver métricas, problema, solución,
-      arquitectura y stack técnico.
-    </p>
-  `;
+    return {
+      ...project,
+      ...(project.i18n?.en ?? {}),
+      featured: project.featured,
+      id: project.id,
+      coAuthors: project.coAuthors,
+    };
+  };
 
   const setActiveCard = (projectId) => {
     const cards = document.querySelectorAll("[data-project-card]");
@@ -50,15 +41,15 @@ import { projects } from "../../data/projects";
 
     cards.forEach((card) => {
       card.classList.remove(
-        "border-blue-500/50",
+        "border-blue-500/60",
         "bg-slate-900",
-        "shadow-[0_0_0_1px_rgba(59,130,246,0.15)]",
+        "shadow-[0_10px_30px_rgba(59,130,246,0.15)]",
         "scale-[1.01]"
-        );
+      );
     });
 
     buttons.forEach((btn) => {
-      btn.innerHTML = "Ver detalle →";
+      btn.innerHTML = getDetailButtonMarkup();
       btn.classList.remove("text-blue-300");
       btn.classList.add("text-slate-200");
     });
@@ -74,11 +65,11 @@ import { projects } from "../../data/projects";
         "bg-slate-900",
         "scale-[1.01]",
         "shadow-[0_10px_30px_rgba(59,130,246,0.15)]"
-        );
+      );
     }
 
     if (activeButton) {
-      activeButton.innerHTML = "✓ Seleccionado";
+      activeButton.innerHTML = currentLanguage === "en" ? "Selected" : "Seleccionado";
       activeButton.classList.remove("text-slate-200");
       activeButton.classList.add("text-blue-300");
     }
@@ -101,12 +92,12 @@ import { projects } from "../../data/projects";
 
     return `
       <section data-detail-block class="detail-block mt-10 space-y-4">
-        <h3 class="text-2xl font-semibold text-slate-100">Métricas</h3>
+        <h3 class="text-2xl font-semibold text-slate-100">${currentLanguage === "en" ? "Metrics" : "Metricas"}</h3>
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           ${metrics
             .map(
               (metric) => `
-                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
+                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-slate-700">
                   <p class="text-3xl font-bold text-slate-100">${metric.value}</p>
                   <h4 class="mt-3 text-base font-semibold text-slate-200">${metric.label}</h4>
                 </article>
@@ -124,29 +115,25 @@ import { projects } from "../../data/projects";
     return `
       <section data-detail-block class="detail-block mt-10 space-y-6">
         <div class="space-y-3">
-          <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Arquitectura</p>
+          <p class="text-sm uppercase tracking-[0.2em] text-slate-500">${currentLanguage === "en" ? "Architecture" : "Arquitectura"}</p>
           <h3 class="text-2xl font-semibold text-slate-100">${architecture.title}</h3>
           <p class="text-slate-400 leading-7">${architecture.description}</p>
         </div>
 
-        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          ${architecture.layers
-            .map(
-              (layer) => `
-                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
-                  <p class="text-sm uppercase tracking-[0.2em] text-slate-500">${layer.step}</p>
-                  <h4 class="mt-3 text-lg font-semibold text-slate-100">${layer.name}</h4>
-                  <p class="mt-2 text-sm leading-6 text-slate-400">${layer.description}</p>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
-          <h4 class="text-lg font-semibold text-slate-100">Flujo de arquitectura</h4>
-          <p class="mt-4 text-slate-400 leading-7">${architecture.flow}</p>
-        </div>
+        ${architecture.layers?.length
+          ? `<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              ${architecture.layers
+                .map(
+                  (layer) => `
+                    <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-slate-700">
+                      <h4 class="text-lg font-semibold text-slate-100">${layer.name}</h4>
+                      <p class="mt-3 text-sm leading-6 text-slate-400">${layer.description}</p>
+                    </article>
+                  `
+                )
+                .join("")}
+            </div>`
+          : ""}
       </section>
     `;
   };
@@ -156,12 +143,12 @@ import { projects } from "../../data/projects";
 
     return `
       <section data-detail-block class="detail-block mt-10 space-y-4">
-        <h3 class="text-2xl font-semibold text-slate-100">Stack técnico</h3>
+        <h3 class="text-2xl font-semibold text-slate-100">${currentLanguage === "en" ? "Technical stack" : "Stack tecnico"}</h3>
         <div class="grid gap-4 md:grid-cols-3">
           ${stack
             .map(
               (item) => `
-                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
+                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-slate-700">
                   <h4 class="text-lg font-semibold text-slate-100">${item.name}</h4>
                   <p class="mt-3 text-slate-400 leading-7">${item.description}</p>
                 </article>
@@ -173,7 +160,20 @@ import { projects } from "../../data/projects";
     `;
   };
 
+  const renderCredits = (coAuthors) => {
+    if (!coAuthors?.length) return "";
+
+    return `
+      <section data-detail-block class="detail-block mt-8 border-t border-slate-800 pt-6">
+        <p class="text-sm uppercase tracking-[0.2em] text-slate-500">${currentLanguage === "en" ? "Co-authors" : "Co-autoras"}</p>
+        <p class="mt-3 text-slate-400 leading-7">${coAuthors.join(", ")}</p>
+      </section>
+    `;
+  };
+
   const renderProject = (project) => {
+    const localizedProject = getLocalizedProject(project);
+    detailSection?.classList.remove("hidden");
     detailContainer.classList.remove("visible");
     detailContainer.innerHTML = "";
 
@@ -182,43 +182,44 @@ import { projects } from "../../data/projects";
         <div class="mb-6 h-px w-full bg-gradient-to-r from-blue-400/60 via-slate-700 to-transparent"></div>
         <div data-detail-block class="detail-block">
           <p class="text-sm uppercase tracking-[0.2em] text-slate-500">
-            Detalle del proyecto
+            ${currentLanguage === "en" ? "Project detail" : "Detalle del proyecto"}
           </p>
 
           <div class="mt-4 flex flex-wrap items-center gap-3">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-100">${project.title}</h2>
+            <h2 class="text-3xl font-bold text-slate-100 md:text-4xl">${localizedProject.title}</h2>
             <span class="rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-400">
-              ${project.status}
+              ${localizedProject.status}
             </span>
           </div>
 
           <p class="mt-4 max-w-3xl text-slate-400 leading-7">
-            ${project.shortDescription}
+            ${localizedProject.shortDescription}
           </p>
         </div>
 
         <section data-detail-block class="detail-block mt-10 grid gap-6 lg:grid-cols-2">
-          <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
-            <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Problema</p>
-            <h3 class="mt-4 text-2xl font-semibold text-slate-100">Contexto del proyecto</h3>
-            <p class="mt-4 text-slate-400 leading-7">${project.problem}</p>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-slate-700">
+            <p class="text-sm uppercase tracking-[0.2em] text-slate-500">${currentLanguage === "en" ? "Problem" : "Problema"}</p>
+            <h3 class="mt-4 text-2xl font-semibold text-slate-100">${currentLanguage === "en" ? "Project context" : "Contexto del proyecto"}</h3>
+            <p class="mt-4 text-slate-400 leading-7">${localizedProject.problem}</p>
           </article>
 
-          <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700">
-            <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Solución</p>
-            <h3 class="mt-4 text-2xl font-semibold text-slate-100">Respuesta propuesta</h3>
-            <p class="mt-4 text-slate-400 leading-7">${project.solution}</p>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-slate-700">
+            <p class="text-sm uppercase tracking-[0.2em] text-slate-500">${currentLanguage === "en" ? "Solution" : "Solucion"}</p>
+            <h3 class="mt-4 text-2xl font-semibold text-slate-100">${currentLanguage === "en" ? "Proposed response" : "Respuesta propuesta"}</h3>
+            <p class="mt-4 text-slate-400 leading-7">${localizedProject.solution}</p>
           </article>
         </section>
 
-        ${renderMetrics(project.metrics)}
-        ${renderArchitecture(project.architecture)}
-        ${renderStack(project.stack)}
+        ${renderMetrics(localizedProject.metrics)}
+        ${renderArchitecture(localizedProject.architecture)}
+        ${renderStack(localizedProject.stack)}
+        ${renderCredits(localizedProject.coAuthors)}
       `;
 
       detailContainer.classList.add("visible");
       animateDetailBlocks();
-      setActiveCard(project.id);
+      setActiveCard(localizedProject.id);
 
       detailSection?.scrollIntoView({
         behavior: "smooth",
@@ -233,11 +234,7 @@ import { projects } from "../../data/projects";
 
     detailContainer.classList.remove("visible");
     detailContainer.innerHTML = "";
-
-    requestAnimationFrame(() => {
-      detailContainer.innerHTML = getEmptyStateMarkup();
-      detailContainer.classList.add("visible");
-    });
+    detailSection?.classList.add("hidden");
   };
 
   buttons.forEach((button) => {
@@ -257,4 +254,55 @@ import { projects } from "../../data/projects";
       renderProject(project);
     });
   });
+
+  window.addEventListener("portfolio-language-change", (event) => {
+    currentLanguage = event.detail?.language === "en" ? "en" : "es";
+
+    if (!activeProjectId) {
+      setActiveCard(null);
+      return;
+    }
+
+    const project = projects.find((item) => item.id === activeProjectId);
+    if (project) {
+      renderProject(project);
+    }
+  });
 </script>
+
+<style is:global>
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 360ms ease,
+      transform 360ms ease;
+  }
+
+  .fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .detail-block {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 420ms ease,
+      transform 420ms ease;
+  }
+
+  .detail-block-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in-section,
+    .detail-block {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
