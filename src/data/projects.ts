@@ -109,6 +109,7 @@ export const projects = [
               "Public project available at github.com/BrionesBenjamin22/SGM-GIDAS.",
           },
         ],
+        coAuthors: ["Valentina Falco (Frontend Development)", "Zoe Quiroz (Frontend Development)"],
       },
     },
   },

@@ -5,6 +5,7 @@ import ProjectsOverview from "../components/sections/ProjectsOverview.astro";
 import ProjectDetail from "../components/sections/ProjectDetail.astro";
 import ContactSection from "../components/sections/ContactSection.astro";
 import InfoCard from "../components/ui/InfoCard.astro";
+import CareerSection from "../components/sections/CareerSection.astro";
 ---
 
 <MainLayout>
@@ -14,16 +15,28 @@ import InfoCard from "../components/ui/InfoCard.astro";
         Benjamín Briones
       </h1>
 
-      <p class="max-w-xl text-xl leading-relaxed text-slate-300">
+      <p
+        class="max-w-xl text-xl leading-relaxed text-slate-300"
+        data-lang-es="Desarrollador de Software"
+        data-lang-en="Software Developer"
+      >
         Desarrollador de Software
       </p>
 
-      <p class="max-w-xl leading-relaxed text-slate-400">
+      <p
+        class="max-w-xl leading-relaxed text-slate-400"
+        data-lang-es="Estudiante avanzado de Ingeniería en Sistemas, con experiencia en el desarrollo de aplicaciones web y APIs."
+        data-lang-en="Advanced Systems Engineering student with experience building web applications and APIs."
+      >
         Estudiante avanzado de Ingeniería en Sistemas, con experiencia en el
         desarrollo de aplicaciones web y APIs.
       </p>
 
-      <p class="max-w-xl leading-relaxed text-slate-400">
+      <p
+        class="max-w-xl leading-relaxed text-slate-400"
+        data-lang-es="He desarrollado proyectos con Python y TypeScript utilizando React, Next.js, NestJS, Flask y Django. Actualmente profundizo en arquitectura de software, desarrollo frontend, DevOps, Docker, infraestructura cloud y seguridad aplicada."
+        data-lang-en="I have built projects with Python and TypeScript using React, Next.js, NestJS, Flask and Django. I am currently deepening my knowledge of software architecture, frontend development, DevOps, Docker, cloud infrastructure and applied security."
+      >
         He desarrollado proyectos con Python y TypeScript utilizando React,
         Next.js, NestJS, Flask y Django. Actualmente profundizo en arquitectura
         de software, desarrollo frontend, DevOps, Docker, infraestructura cloud
@@ -40,9 +53,21 @@ import InfoCard from "../components/ui/InfoCard.astro";
     </div>
 
     <InfoCard className="p-6">
-      <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Enfoque actual</p>
-      <h2 class="mt-3 text-xl font-semibold text-slate-100">Backend y plataforma</h2>
-      <p class="mt-4 leading-7 text-slate-400">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-slate-500"
+        data-lang-es="Enfoque actual"
+        data-lang-en="Current focus"
+      >Enfoque actual</p>
+      <h2
+        class="mt-3 text-xl font-semibold text-slate-100"
+        data-lang-es="Backend y plataforma"
+        data-lang-en="Backend and platform"
+      >Backend y plataforma</h2>
+      <p
+        class="mt-4 leading-7 text-slate-400"
+        data-lang-es="Construcción de servicios mantenibles y preparación de entornos para su despliegue, operación y evolución."
+        data-lang-en="Building maintainable services and preparing environments for deployment, operation and evolution."
+      >
         Construcción de servicios mantenibles y preparación de entornos para su
         despliegue, operación y evolución.
       </p>
@@ -51,5 +76,6 @@ import InfoCard from "../components/ui/InfoCard.astro";
 
   <ProjectsOverview />
   <ProjectDetail />
+  <CareerSection />
   <ContactSection />
 </MainLayout>

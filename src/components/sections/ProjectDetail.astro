@@ -31,7 +31,7 @@ import { projects } from "../../data/projects";
       ...(project.i18n?.en ?? {}),
       featured: project.featured,
       id: project.id,
-      coAuthors: project.coAuthors,
+      coAuthors: project.i18n?.en?.coAuthors ?? project.coAuthors,
     };
   };
 
