@@ -303,129 +303,134 @@ export const projects = [
   {
     id: "ganadera",
     title: "LotManager",
-    status: "Proyecto educativo",
+    status: "Prototipo en evolución",
     featured: false,
     shortDescription:
-      "Sistema de gestion de bovinos orientado a corrales, dietas, pesajes y metricas operativas de cada corral, desarrollado como primer proyecto educativo.",
+      "Prototipo de gestión para feedlots que centraliza bovinos, corrales, alimentación, sanidad y métricas operativas.",
 
-    tags: ["TypeScript", "Next.js", "React", "SQLite", "Backend"],
+    tags: ["TypeScript", "Next.js", "Express", "Prisma", "SQLite"],
 
     metrics: [
-      { value: "4", label: "Dominios clave" },
-      { value: "SQLite", label: "Base de datos" },
-      { value: "Backend", label: "Rol principal" },
-      { value: "Capas", label: "Arquitectura" },
+      { value: "18", label: "Modelos de datos" },
+      { value: "16", label: "Módulos y rutas de API" },
+      { value: "8", label: "Páginas frontend" },
+      { value: "3", label: "Flujos UI principales" },
     ],
 
     problem:
-      "El proyecto buscaba resolver, desde un contexto educativo, la organizacion basica de un establecimiento tipo feedlot: administrar bovinos, corrales, dietas, pesajes y el seguimiento de metricas por corral.",
+      "El proyecto busca centralizar la operación de engorde a corral: registrar animales y su ubicación, controlar la capacidad de los corrales, seguir peso y evolución, gestionar alimentación, suministros, enfermedades y tratamientos, y consultar métricas como ganancia media diaria y eficiencia por corral.",
 
     solution:
-      "Participe como desarrollador backend, modelando reglas del dominio, persistencia en SQLite y servicios para que la aplicacion pudiera registrar animales, asociarlos a corrales, gestionar dietas y consultar informacion operativa.",
+      "Como desarrollador backend, implementé los módulos de autenticación y usuarios, feedlots, personal, ubicación, bovinos, corrales, pesajes, alimentación, sanidad y métricas de corral. El sistema está pensado principalmente para administradores o encargados operativos de un feedlot, con apoyo al personal administrativo y veterinario.",
 
     architecture: {
-      title: "Arquitectura por capas en TypeScript",
+      title: "Arquitectura por capas para un prototipo operativo",
       description:
-        "LotManager fue implementado con TypeScript, Next.js y React, usando SQLite como base de datos. El backend se organizo por capas para separar acceso a datos, logica de negocio y exposicion de funcionalidades, una decision clave para ordenar el primer proyecto y facilitar su mantenimiento.",
+        "LotManager combina Next.js y React para la interfaz administrativa, y Express con Prisma y TypeScript para la API. SQLite resulta adecuada para este prototipo y demostración local; una futura operación concurrente requeriría una migración a PostgreSQL.",
       layers: [
         {
           step: "01",
           name: "Dominio ganadero",
           description:
-            "Representa bovinos, corrales, dietas, pesajes y metricas asociadas a la operacion diaria.",
+            "Modela feedlots, personal, bovinos, corrales, pesajes, alimentación, sanidad y métricas de operación.",
         },
         {
           step: "02",
           name: "Servicios backend",
           description:
-            "Centralizan reglas de negocio y coordinan las operaciones principales del sistema.",
+            "Express y TypeScript centralizan reglas de negocio y coordinan las operaciones principales del sistema.",
         },
         {
           step: "03",
           name: "Persistencia",
           description:
-            "Utiliza SQLite para almacenar datos del proyecto de forma simple y adecuada al alcance educativo.",
+            "Prisma administra la persistencia sobre SQLite, adecuada al alcance local y de demostración del prototipo.",
         },
         {
           step: "04",
           name: "Interfaz web",
           description:
-            "Next.js y React conectan la experiencia de usuario con las funcionalidades del backend.",
+            "Next.js y React exponen los flujos de acceso, bovinos, corrales y control sanitario actualmente disponibles.",
         },
       ],
-      flow: "Next.js + React -> Servicios TypeScript -> SQLite",
+      flow: "Next.js + React -> Express + Prisma -> SQLite",
     },
 
     stack: [
       {
         name: "Rol",
         description:
-          "Me desempene como desarrollador backend, enfocado en modelado de datos, servicios y logica de negocio.",
+          "Me desempeñé como desarrollador backend, enfocado en modelado de datos, servicios y lógica de negocio.",
       },
       {
         name: "Backend",
         description:
-          "TypeScript para implementar funcionalidades del dominio ganadero con una estructura por capas.",
+          "Express, Prisma y TypeScript para implementar los módulos y reglas del dominio ganadero.",
       },
       {
         name: "Base de datos",
         description:
-          "SQLite para persistir bovinos, corrales, dietas, pesajes y metricas del sistema.",
+          "SQLite para persistir la información del prototipo; PostgreSQL sería la evolución prevista para un uso productivo multiusuario.",
+      },
+      {
+        name: "Alcance actual",
+        description:
+          "El frontend implementa acceso, bovinos, corrales y control sanitario. Dietas, reportes, pesajes y alimentación aún no están conectados a la interfaz.",
       },
       {
         name: "Repositorio",
         description:
-          "Proyecto publico disponible en github.com/LotManager/lotmanager-proyect.",
+          "github.com/LotManager/lotmanager-proyect",
       },
     ],
     i18n: {
       en: {
         title: "LotManager",
-        status: "Educational project",
+        status: "Evolving prototype",
         shortDescription:
-          "Cattle management system focused on pens, diets, weigh-ins and operational metrics for each pen, built as a first educational project.",
-        tags: ["TypeScript", "Next.js", "React", "SQLite", "Backend"],
+          "Feedlot management prototype that centralizes cattle, pens, feeding, health management and operational metrics.",
+        tags: ["TypeScript", "Next.js", "Express", "Prisma", "SQLite"],
         metrics: [
-          { value: "4", label: "Key domains" },
-          { value: "SQLite", label: "Database" },
-          { value: "Backend", label: "Main role" },
-          { value: "Layers", label: "Architecture" },
+          { value: "18", label: "Data models" },
+          { value: "16", label: "API modules and routes" },
+          { value: "8", label: "Frontend pages" },
+          { value: "3", label: "Main UI flows" },
         ],
         problem:
-          "The project aimed to solve, in an educational context, the basic organization of a feedlot operation: managing cattle, pens, diets, weigh-ins and pen-level metrics.",
+          "The project aims to centralize feedlot operations: registering cattle and location, tracking pen capacity, weight and progress, managing feeding, supplies, diseases and treatments, and consulting metrics such as average daily gain and pen efficiency.",
         solution:
-          "I worked as a backend developer, modeling domain rules, SQLite persistence and services so the application could register animals, assign them to pens, manage diets and query operational information.",
+          "As a backend developer, I implemented authentication and users, feedlots, staff, locations, cattle, pens, weigh-ins, feeding, health management and pen metrics. The system is intended primarily for feedlot administrators and operations managers, with support for administrative staff and veterinarians.",
         architecture: {
-          title: "Layered architecture in TypeScript",
+          title: "Layered architecture for an operational prototype",
           description:
-            "LotManager was implemented with TypeScript, Next.js and React, using SQLite as its database. The backend followed a layered structure to separate data access, business logic and feature exposure, an important decision for organizing a first project and making it easier to maintain.",
+            "LotManager combines Next.js and React for the administrative interface, and Express with Prisma and TypeScript for the API. SQLite is suitable for this local prototype and demonstration; a concurrent production environment would require migrating to PostgreSQL.",
           layers: [
             {
               step: "01",
-              name: "Cattle domain",
-              description:
-                "Represents cattle, pens, diets, weigh-ins and metrics tied to daily operations.",
+          name: "Cattle domain",
+          description:
+                "Models feedlots, staff, cattle, pens, weigh-ins, feeding, health management and operational metrics.",
             },
             {
               step: "02",
-              name: "Backend services",
-              description:
-                "Centralize business rules and coordinate the main system operations.",
+          name: "Backend services",
+          description:
+                "Express and TypeScript centralize business rules and coordinate the system's primary operations.",
             },
             {
               step: "03",
-              name: "Persistence",
-              description:
-                "Uses SQLite to store project data in a simple way aligned with its educational scope.",
+          name: "Persistence",
+          description:
+                "Prisma manages persistence on SQLite, appropriate for the prototype's local and demonstration scope.",
             },
             {
               step: "04",
-              name: "Web interface",
-              description:
-                "Next.js and React connect the user experience with backend functionality.",
+          name: "Web interface",
+          description:
+                "Next.js and React expose the currently available access, cattle, pens and health management flows.",
             },
           ],
-          flow: "Next.js + React -> TypeScript services -> SQLite",
+          flow: "Next.js + React -> Express + Prisma -> SQLite",
         },
         stack: [
           {
@@ -436,17 +441,22 @@ export const projects = [
           {
             name: "Backend",
             description:
-              "TypeScript for implementing cattle domain functionality with a layered structure.",
+              "Express, Prisma and TypeScript to implement the cattle-domain modules and rules.",
           },
           {
             name: "Database",
             description:
-              "SQLite to persist cattle, pens, diets, weigh-ins and system metrics.",
+              "SQLite to persist prototype data; PostgreSQL would be the planned evolution for multi-user production use.",
+          },
+          {
+            name: "Current scope",
+            description:
+              "The frontend implements access, cattle, pens and health management. Diets, reports, weigh-ins and feeding are not yet connected to the interface.",
           },
           {
             name: "Repository",
             description:
-              "Public project available at github.com/LotManager/lotmanager-proyect.",
+              "github.com/LotManager/lotmanager-proyect",
           },
         ],
       },
