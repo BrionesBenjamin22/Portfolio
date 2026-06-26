@@ -1,39 +1,36 @@
 @import "tailwindcss";
 
-.hero-reveal {
-  animation: hero-reveal 720ms ease both;
+/* estilos base del sitio */
+
+html {
+  scroll-behavior: smooth;
 }
 
-.hero-reveal:nth-child(1) {
-  animation-delay: 80ms;
+body {
+  font-family: system-ui, sans-serif;
 }
 
-.hero-reveal:nth-child(2) {
-  animation-delay: 220ms;
+/* animación de aparición de secciones */
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.hero-reveal:nth-child(3) {
-  animation-delay: 360ms;
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms ease, transform 500ms ease;
 }
 
-.hero-intro + .hero-reveal {
-  animation-delay: 500ms;
+
+.detail-block {
+  opacity: 0;
+  transform: translateY(18px);
 }
 
-@keyframes hero-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-reveal {
-    animation: none;
-  }
+.detail-block-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 450ms ease, transform 450ms ease;
 }

@@ -3,452 +3,53 @@ import "../styles/global.css";
 import MainLayout from "../layouts/MainLayout.astro";
 import ProjectsOverview from "../components/sections/ProjectsOverview.astro";
 import ProjectDetail from "../components/sections/ProjectDetail.astro";
-import SectionHeader from "../components/ui/SectionHeader.astro";
+import ContactSection from "../components/sections/ContactSection.astro";
 import InfoCard from "../components/ui/InfoCard.astro";
-
-const tecnologias = [
-  "React",
-  "Nest.js",
-  "Next.js",
-  "Typescript",
-  "Python",
-  "Docker",
-  "Kubernetes",
-];
-
-const herramientasCarrera = [
-  {
-    es: "Desarrollo de software",
-    en: "Software development",
-  },
-  {
-    es: "Diseno de sistemas",
-    en: "Systems design",
-  },
-  {
-    es: "Analisis funcional",
-    en: "Functional analysis",
-  },
-  {
-    es: "Bases de datos",
-    en: "Databases",
-  },
-  {
-    es: "Arquitectura de software",
-    en: "Software architecture",
-  },
-  {
-    es: "Trabajo en equipo",
-    en: "Teamwork",
-  },
-  {
-    es: "Comunicacion tecnica",
-    en: "Technical communication",
-  },
-  {
-    es: "Resolucion de problemas",
-    en: "Problem solving",
-  },
-];
 ---
 
 <MainLayout>
-  <section class="hero-intro space-y-8">
-    <h1
-      class="hero-reveal text-5xl font-bold tracking-tight"
-      data-lang-es="Quien soy?"
-      data-lang-en="Who am I?"
-    >
-      Quien soy?
-    </h1>
+  <section class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end">
+    <div class="space-y-8">
+      <h1 class="text-5xl font-bold tracking-tight">
+        Benjamín Briones
+      </h1>
 
-    <p
-      class="hero-reveal text-xl text-slate-300 max-w-xl leading-relaxed"
-      data-lang-es="Backend Developer orientado a DevOps e infraestructura cloud."
-      data-lang-en="Backend Developer focused on DevOps and cloud infrastructure."
-    >
-      Backend Developer orientado a DevOps e infraestructura cloud.
-    </p>
-
-    <p
-      class="hero-reveal text-slate-400 max-w-xl leading-relaxed"
-      data-lang-es="Estudiante avanzado de Ingenieria en Sistemas, con foco en desarrollo backend, automatizacion, despliegue de aplicaciones e infraestructura para sistemas mantenibles, escalables y confiables."
-      data-lang-en="Advanced Systems Engineering student focused on backend development, automation, application deployment and infrastructure for maintainable, scalable and reliable systems."
-    >
-      Estudiante avanzado de Ingenieria en Sistemas, con foco en desarrollo backend,
-      automatizacion, despliegue de aplicaciones e infraestructura para sistemas
-      mantenibles, escalables y confiables.
-    </p>
-  </section>
-
-  <div class="hero-reveal flex flex-wrap gap-3 pt-4 text-sm text-slate-300">
-    <span class="rounded-full border border-slate-700 px-3 py-1" data-lang-es="Desarrollo de Software" data-lang-en="Software Development">
-      Desarrollo de Software
-    </span>
-
-    <span class="rounded-full border border-slate-700 px-3 py-1" data-lang-es="Infraestructura Cloud" data-lang-en="Cloud Infrastructure">
-      Infraestructura Cloud
-    </span>
-
-    <span class="rounded-full border border-slate-700 px-3 py-1">
-      CI/CD
-    </span>
-
-    <span class="rounded-full border border-slate-700 px-3 py-1">
-      DevOps
-    </span>
-  </div>
-
-  <section class="mt-20 grid gap-4 lg:grid-cols-2">
-    <InfoCard className="p-6 md:p-8">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-slate-500"
-        data-lang-es="Formacion academica"
-        data-lang-en="Academic background"
-      >
-        Formacion academica
+      <p class="max-w-xl text-xl leading-relaxed text-slate-300">
+        Desarrollador de Software
       </p>
 
-      <h2
-        class="mt-3 text-2xl font-semibold text-slate-100"
-        data-lang-es="Ingenieria en Sistemas"
-        data-lang-en="Systems Engineering"
-      >
-        Ingenieria en Sistemas
-      </h2>
-
-      <div class="mt-4 space-y-4 text-slate-400 leading-7">
-        <p
-          data-lang-es="Actualmente me encuentro cursando el cuarto ano de Ingenieria en Sistemas, avanzando hacia el titulo intermedio de Analista Universitario de Sistemas y continuando luego con la finalizacion de la carrera completa."
-          data-lang-en="I am currently in my fourth year of Systems Engineering, progressing toward the intermediate University Systems Analyst degree and continuing toward the full degree."
-        >
-          Actualmente me encuentro cursando el cuarto ano de Ingenieria en
-          Sistemas, avanzando hacia el titulo intermedio de Analista
-          Universitario de Sistemas y continuando luego con la finalizacion de
-          la carrera completa.
-        </p>
-
-        <p
-          data-lang-es="Mi formacion combina bases solidas de desarrollo de software, arquitectura de sistemas, bases de datos, redes e infraestructura, lo que me permite abordar los proyectos no solo desde la logica de negocio, sino tambien desde su despliegue, mantenimiento y operacion."
-          data-lang-en="My background combines software development, systems architecture, databases, networking and infrastructure, allowing me to approach projects from both business logic and deployment, maintenance and operations."
-        >
-          Mi formacion combina bases solidas de desarrollo de software,
-          arquitectura de sistemas, bases de datos, redes e infraestructura, lo
-          que me permite abordar los proyectos no solo desde la logica de
-          negocio, sino tambien desde su despliegue, mantenimiento y operacion.
-        </p>
-      </div>
-    </InfoCard>
-
-    <InfoCard className="p-6 md:p-8">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-slate-500"
-        data-lang-es="Disponibilidad"
-        data-lang-en="Availability"
-      >
-        Disponibilidad
+      <p class="max-w-xl leading-relaxed text-slate-400">
+        Estudiante avanzado de Ingeniería en Sistemas, con experiencia en el
+        desarrollo de aplicaciones web y APIs.
       </p>
 
-      <h2
-        class="mt-3 text-2xl font-semibold text-slate-100"
-        data-lang-es="Orientado a desarrollo backend, DevOps e infraestructura cloud"
-        data-lang-en="Focused on backend development, DevOps and cloud infrastructure"
-      >
-        Orientado a desarrollo backend, DevOps e infraestructura cloud
-      </h2>
+      <p class="max-w-xl leading-relaxed text-slate-400">
+        He desarrollado proyectos con Python y TypeScript utilizando React,
+        Next.js, NestJS, Flask y Django. Actualmente profundizo en arquitectura
+        de software, desarrollo frontend, DevOps, Docker, infraestructura cloud
+        y seguridad aplicada.
+      </p>
 
-      <div class="mt-4 space-y-4 text-slate-400 leading-7">
-        <p
-          data-lang-es="Actualmente me encuentro orientando mi perfil hacia el area DevOps, profundizando en practicas de contenerizacion, automatizacion, CI/CD, infraestructura cloud, observabilidad y despliegue de aplicaciones."
-          data-lang-en="I am currently orienting my profile toward DevOps, deepening my work in containerization, automation, CI/CD, cloud infrastructure, observability and application deployment."
-        >
-          Actualmente me encuentro orientando mi perfil hacia el area DevOps,
-          profundizando en practicas de contenerizacion, automatizacion, CI/CD,
-          infraestructura cloud, observabilidad y despliegue de aplicaciones.
-        </p>
-
-        <p
-          data-lang-es="Me interesa participar en proyectos donde pueda aportar tanto desde el desarrollo backend como desde la mejora de procesos de entrega, configuracion de entornos, uso de Docker, Kubernetes, GitHub Actions y buenas practicas para construir sistemas mas mantenibles, escalables y confiables."
-          data-lang-en="I am interested in projects where I can contribute through backend development and delivery process improvements, environment configuration, Docker, Kubernetes, GitHub Actions and engineering practices for maintainable, scalable and reliable systems."
-        >
-          Me interesa participar en proyectos donde pueda aportar tanto desde el
-          desarrollo backend como desde la mejora de procesos de entrega,
-          configuracion de entornos, uso de Docker, Kubernetes, GitHub Actions y
-          buenas practicas para construir sistemas mas mantenibles, escalables y
-          confiables.
-        </p>
+      <div class="flex flex-wrap gap-3 pt-2 text-sm text-slate-300">
+        {['Git', 'APIs REST', 'Docker', 'Kubernetes', 'CI/CD', 'Cloud'].map((technology) => (
+          <span class="rounded-full border border-slate-700 px-3 py-1">
+            {technology}
+          </span>
+        ))}
       </div>
-    </InfoCard>
+    </div>
 
-    <InfoCard className="p-6 md:p-8 lg:col-span-2">
-      <div class="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
-        <div>
-          <p
-            class="text-sm uppercase tracking-[0.2em] text-slate-500"
-            data-lang-es="Tecnologias dominadas"
-            data-lang-en="Core technologies"
-          >
-            Tecnologias dominadas
-          </p>
-
-          <h2
-            class="mt-3 text-2xl font-semibold text-slate-100"
-            data-lang-es="Stack de desarrollo"
-            data-lang-en="Development stack"
-          >
-            Stack de desarrollo
-          </h2>
-
-          <p
-            class="mt-4 text-slate-400 leading-7"
-            data-lang-es="Herramientas y frameworks aplicados en desarrollo frontend, backend, automatizacion y despliegue de aplicaciones."
-            data-lang-en="Tools and frameworks applied across frontend, backend, automation and application deployment."
-          >
-            Herramientas y frameworks aplicados en desarrollo frontend, backend,
-            automatizacion y despliegue de aplicaciones.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-          {tecnologias.map((tecnologia) => (
-            <span class="rounded-full border border-slate-700 bg-slate-950/70 px-3 py-2 text-center text-sm text-slate-300">
-              {tecnologia}
-            </span>
-          ))}
-        </div>
-      </div>
-    </InfoCard>
-  </section>
-
-  <section id="carrera" class="mt-20 space-y-8">
-    <SectionHeader
-      eyebrow="Carrera universitaria"
-      eyebrowEn="University education"
-      title="Ingenieria en Sistemas de Informacion"
-      titleEn="Information Systems Engineering"
-      description="Formacion universitaria orientada al analisis, diseno y construccion de soluciones de software con mirada tecnica y organizacional."
-      descriptionEn="University education focused on analyzing, designing and building software solutions with both technical and organizational perspective."
-      maxWidth="max-w-3xl"
-    />
-
-    <InfoCard className="p-6 md:p-8">
-      <div class="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-        <div>
-          <p
-            class="text-sm uppercase tracking-[0.2em] text-slate-500"
-            data-lang-es="Institucion"
-            data-lang-en="Institution"
-          >
-            Institucion
-          </p>
-
-          <h2
-            class="mt-3 text-2xl font-semibold text-slate-100"
-            data-lang-es="Universidad Tecnologica Nacional - Facultad Regional La Plata"
-            data-lang-en="National Technological University - La Plata Regional Faculty"
-          >
-            Universidad Tecnologica Nacional - Facultad Regional La Plata
-          </h2>
-
-          <p
-            class="mt-4 text-slate-400 leading-7"
-            data-lang-es="Periodo: 2022 - Actualidad"
-            data-lang-en="Period: 2022 - Present"
-          >
-            Periodo: 2022 - Actualidad
-          </p>
-
-          <p
-            class="mt-4 text-slate-400 leading-7"
-            data-lang-es="La carrera me permitio integrar fundamentos de programacion, arquitectura, procesos, datos y gestion, fortaleciendo una forma de trabajo orientada a entender problemas reales antes de construir soluciones."
-            data-lang-en="The program has helped me integrate programming, architecture, processes, data and management foundations, strengthening a way of working focused on understanding real problems before building solutions."
-          >
-            La carrera me permitio integrar fundamentos de programacion,
-            arquitectura, procesos, datos y gestion, fortaleciendo una forma de
-            trabajo orientada a entender problemas reales antes de construir
-            soluciones.
-          </p>
-        </div>
-
-        <div>
-          <p
-            class="text-sm uppercase tracking-[0.2em] text-slate-500"
-            data-lang-es="Herramientas desarrolladas"
-            data-lang-en="Developed skills"
-          >
-            Herramientas desarrolladas
-          </p>
-
-          <div class="mt-5 flex flex-wrap gap-2">
-            {herramientasCarrera.map((herramienta) => (
-              <span
-                class="rounded-full border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-300"
-                data-lang-es={herramienta.es}
-                data-lang-en={herramienta.en}
-              >
-                {herramienta.es}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </InfoCard>
-  </section>
-
-  <section id="curriculum" class="mt-20 space-y-8">
-    <SectionHeader
-      eyebrow="Curriculum"
-      eyebrowEn="Resume"
-      title="Resumen profesional"
-      titleEn="Professional summary"
-      description="Accede a mi curriculum actualizado segun el idioma seleccionado."
-      descriptionEn="Access my updated resume according to the selected language."
-      maxWidth="max-w-2xl"
-    />
-
-    <InfoCard className="p-6 md:p-8">
-      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <div class="max-w-2xl">
-          <p
-            class="text-sm uppercase tracking-[0.2em] text-slate-500"
-            data-lang-es="Documento disponible"
-            data-lang-en="Available document"
-          >
-            Documento disponible
-          </p>
-
-          <h2
-            class="mt-3 text-2xl font-semibold text-slate-100"
-            data-lang-es="Curriculum Vitae"
-            data-lang-en="Resume"
-          >
-            Curriculum Vitae
-          </h2>
-
-          <p
-            class="mt-4 text-slate-400 leading-7"
-            data-lang-es="El enlace cambia automaticamente entre la version en espanol y la version en ingles al usar el selector de idioma."
-            data-lang-en="The link automatically switches between the Spanish and English versions when using the language selector."
-          >
-            El enlace cambia automaticamente entre la version en espanol y la
-            version en ingles al usar el selector de idioma.
-          </p>
-        </div>
-
-        <a
-          href="/Benjam%C3%ADn%20Briones%20-CV.pdf"
-          target="_blank"
-          rel="noreferrer"
-          data-href-es="/Benjam%C3%ADn%20Briones%20-CV.pdf"
-          data-href-en="/Benjam%C3%ADn%20Briones-CV%20(Ingl%C3%A9s).pdf"
-          class="inline-flex justify-center rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:border-slate-500 hover:text-white"
-          data-lang-es="Ver curriculum"
-          data-lang-en="View resume"
-        >
-          Ver curriculum
-        </a>
-      </div>
+    <InfoCard className="p-6">
+      <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Enfoque actual</p>
+      <h2 class="mt-3 text-xl font-semibold text-slate-100">Backend y plataforma</h2>
+      <p class="mt-4 leading-7 text-slate-400">
+        Construcción de servicios mantenibles y preparación de entornos para su
+        despliegue, operación y evolución.
+      </p>
     </InfoCard>
   </section>
 
   <ProjectsOverview />
   <ProjectDetail />
-
-  <section id="contacto" class="mt-20 space-y-8">
-    <SectionHeader
-      eyebrow="Contacto"
-      eyebrowEn="Contact"
-      title="Redes profesionales"
-      titleEn="Professional networks"
-      description="Canales profesionales para conocer mi trabajo, experiencia y repositorios."
-      descriptionEn="Professional channels to learn more about my work, experience and repositories."
-      maxWidth="max-w-2xl"
-    />
-
-    <div class="grid gap-4 md:grid-cols-2">
-      <a
-        href="https://www.linkedin.com/in/benjam%C3%ADn-briones-784375326/"
-        target="_blank"
-        rel="noreferrer"
-        class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700"
-      >
-        <div class="flex items-center gap-3">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-950/70 text-slate-300">
-            <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect width="4" height="12" x="2" y="9" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-          </span>
-          <p class="text-sm uppercase tracking-[0.2em] text-slate-500">LinkedIn</p>
-        </div>
-
-        <h2 class="mt-3 text-xl font-semibold text-slate-100" data-lang-es="Perfil profesional" data-lang-en="Professional profile">
-          Perfil profesional
-        </h2>
-
-        <p class="mt-4 text-slate-300 transition-colors hover:text-white">
-          linkedin.com/in/Benjamin-Briones
-        </p>
-      </a>
-
-      <a
-        href="https://github.com/BrionesBenjamin22"
-        target="_blank"
-        rel="noreferrer"
-        class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-slate-700"
-      >
-        <div class="flex items-center gap-3">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-950/70 text-slate-300">
-            <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-              <path d="M9 18c-4.51 2-5-2-7-2" />
-            </svg>
-          </span>
-          <p class="text-sm uppercase tracking-[0.2em] text-slate-500">GitHub</p>
-        </div>
-
-        <h2 class="mt-3 text-xl font-semibold text-slate-100" data-lang-es="Repositorios y codigo" data-lang-en="Repositories and code">
-          Repositorios y codigo
-        </h2>
-
-        <p class="mt-4 text-slate-300 transition-colors hover:text-white">
-          github.com/BrionesBenjamin22
-        </p>
-      </a>
-    </div>
-
-    <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-slate-500"
-        data-lang-es="Contacto directo"
-        data-lang-en="Direct contact"
-      >
-        Contacto directo
-      </p>
-
-      <div class="mt-4 space-y-2 text-slate-300">
-        <p>Email: benja.briones004@gmail.com</p>
-        <p data-lang-es="Telefono: +54-9-221-6691441" data-lang-en="Phone: +54-9-221-6691441">Telefono: +54-9-221-6691441</p>
-        <p class="flex items-center gap-2">
-          <svg
-            aria-hidden="true"
-            class="h-4 w-4 text-slate-400"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          <span data-lang-es="Ubicacion: La Plata, Buenos Aires" data-lang-en="Location: La Plata, Buenos Aires">
-            Ubicacion: La Plata, Buenos Aires
-          </span>
-        </p>
-      </div>
-    </div>
-  </section>
+  <ContactSection />
 </MainLayout>

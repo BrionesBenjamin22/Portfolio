@@ -7,7 +7,7 @@ export const projects = [
     shortDescription:
       "Aplicacion orientada a gestionar las memorias academicas de laboratorios de la facultad, facilitando el acceso a la informacion y su exportacion.",
 
-    tags: ["React", "Typescript", "Flask", "PostgreSQL"],
+    tags: ["React", "TypeScript", "Flask", "PostgreSQL"],
 
     metrics: [
       { value: "5", label: "Modulos" },
@@ -49,17 +49,22 @@ export const projects = [
       {
         name: "Rol",
         description:
-          "Me desempenie como desarrollador full stack y estuve a cargo del diseno de la solucion completa.",
+          "Me desempeñé como desarrollador del sistema, participando en la implementación de la solución y su arquitectura.",
+      },
+      {
+        name: "Repositorio",
+        description:
+          "Proyecto publico disponible en github.com/BrionesBenjamin22/SGM-GIDAS.",
       },
     ],
-    coAuthors: ["Valentina Falco", "Zoe Quiroz"],
+    coAuthors: ["Valentina Falco (Desarrollo Frontend)", "Zoe Quiroz (Desarrollo Frontend)"],
     i18n: {
       en: {
         title: "Academic Reports Management System",
         status: "Featured project",
         shortDescription:
           "Application focused on managing academic reports for university laboratories, making information easier to access and export.",
-        tags: ["React", "Typescript", "Flask", "PostgreSQL"],
+        tags: ["React", "TypeScript", "Flask", "PostgreSQL"],
         metrics: [
           { value: "5", label: "Modules" },
           { value: "52", label: "Entities" },
@@ -96,7 +101,12 @@ export const projects = [
           {
             name: "Role",
             description:
-              "I worked as a full stack developer and was responsible for designing the complete solution.",
+              "I worked as a developer, contributing to the solution implementation and its architecture.",
+          },
+          {
+            name: "Repository",
+            description:
+              "Public project available at github.com/BrionesBenjamin22/SGM-GIDAS.",
           },
         ],
       },
@@ -106,10 +116,10 @@ export const projects = [
   {
     id: "deskly",
     title: "Deskly",
-    status: "En desarrollo",
+    status: "En desarrollo - etapa final",
     featured: false,
     shortDescription:
-      "Aplicacion movil para consultar disponibilidad y reservar escritorios en espacios de coworking desde una experiencia simple y orientada a dispositivos moviles.",
+      "SaaS mobile para gestionar espacios de coworking, consultar disponibilidad y reservar escritorios desde una experiencia simple y orientada a dispositivos móviles.",
 
     tags: [
       "React Native",
@@ -126,12 +136,12 @@ export const projects = [
       "Deskly aborda una necesidad frecuente en coworkings: evitar que trabajadores remotos, freelancers o estudiantes lleguen a un espacio sin conocer previamente la disponibilidad real de escritorios.",
 
     solution:
-      "La aplicacion permite consultar escritorios disponibles, filtrar por criterios operativos como fecha, horario, capacidad, ubicacion, precio y estado, crear reservas y gestionar reservas activas desde una interfaz mobile-first.",
+      "La aplicación permite a los usuarios de coworkings consultar escritorios disponibles, filtrar por fecha, horario, capacidad, ubicación, precio y estado, crear reservas y gestionar reservas activas desde una interfaz mobile-first.",
 
     architecture: {
-      title: "Backend modular inspirado en arquitectura hexagonal",
+      title: "Arquitectura hexagonal para un SaaS mobile",
       description:
-        "El backend fue organizado con NestJS separando responsabilidades entre dominio, casos de uso, infraestructura y presentacion. Esta estructura favorece la mantenibilidad del MVP y deja el proyecto preparado para evolucionar con autenticacion, pagos, notificaciones, administracion de espacios y despliegue contenerizado con Docker.",
+        "El backend fue organizado con NestJS siguiendo una arquitectura hexagonal que separa dominio, casos de uso, infraestructura y presentación. El desarrollo se guía por un enfoque spec-driven, favoreciendo la mantenibilidad y la evolución del producto.",
       layers: [
         {
           step: "01",
@@ -185,15 +195,25 @@ export const projects = [
       {
         name: "Evolucion",
         description:
-          "Actualmente se encuentra en desarrollo. Proximamente incorporara Docker y nuevas funcionalidades orientadas a producto.",
+          "El producto se encuentra en la etapa final de desarrollo y aún no está en producción.",
+      },
+      {
+        name: "Rol",
+        description:
+          "Me desempeño como desarrollador con un enfoque spec-driven development para guiar la implementación de funcionalidades.",
+      },
+      {
+        name: "Repositorio",
+        description:
+          "Proyecto publico disponible en github.com/BrionesBenjamin22/Deskly-Mobile.",
       },
     ],
     i18n: {
       en: {
         title: "Deskly",
-        status: "In development",
+        status: "In development - final stage",
         shortDescription:
-          "Mobile application for checking desk availability and booking workspaces in coworking spaces through a simple mobile-first experience.",
+          "Mobile SaaS for managing coworking spaces, checking availability and booking desks through a simple mobile-first experience.",
         tags: [
           "React Native",
           "Expo",
@@ -206,11 +226,11 @@ export const projects = [
         problem:
           "Deskly addresses a common coworking issue: helping remote workers, freelancers and students avoid arriving at a workspace without knowing whether desks are available.",
         solution:
-          "The app lets users browse available desks, filter by date, time slot, capacity, location, price and status, create bookings and manage active reservations from a mobile-first interface.",
+          "The application lets coworking users browse available desks, filter by date, time slot, capacity, location, price and status, create bookings and manage active reservations from a mobile-first interface.",
         architecture: {
-          title: "Modular backend inspired by hexagonal architecture",
+          title: "Hexagonal architecture for a mobile SaaS",
           description:
-            "The backend was built with NestJS, separating responsibilities across domain, use cases, infrastructure and presentation. This structure improves MVP maintainability and prepares the project for authentication, payments, notifications, space management and Docker-based deployment.",
+            "The NestJS backend follows a hexagonal architecture that separates domain, use cases, infrastructure and presentation. Development is guided by a spec-driven approach to support maintainability and product evolution.",
           layers: [
             {
               step: "01",
@@ -263,7 +283,17 @@ export const projects = [
           {
             name: "Evolution",
             description:
-              "The project is currently in development. Docker support and additional product features are planned next.",
+              "The product is in its final development stage and is not yet in production.",
+          },
+          {
+            name: "Role",
+            description:
+              "I work as a developer using a spec-driven development approach to guide feature implementation.",
+          },
+          {
+            name: "Repository",
+            description:
+              "Public project available at github.com/BrionesBenjamin22/Deskly-Mobile.",
           },
         ],
       },
@@ -272,49 +302,151 @@ export const projects = [
 
   {
     id: "ganadera",
-    title: "Sistema de Gestion Ganadera",
-    status: "Experiencia backend",
+    title: "LotManager",
+    status: "Proyecto educativo",
     featured: false,
     shortDescription:
-      "Participacion en el analisis, diseno e implementacion backend de un sistema de gestion ganadera tipo Feedlot, enfocado en organizacion operativa y soporte a procesos del dominio.",
+      "Sistema de gestion de bovinos orientado a corrales, dietas, pesajes y metricas operativas de cada corral, desarrollado como primer proyecto educativo.",
 
-    tags: ["Backend", "Analisis", "Diseno", "Logica de negocio"],
+    tags: ["TypeScript", "Next.js", "React", "SQLite", "Backend"],
 
-    metrics: [],
+    metrics: [
+      { value: "4", label: "Dominios clave" },
+      { value: "SQLite", label: "Base de datos" },
+      { value: "Backend", label: "Rol principal" },
+      { value: "Capas", label: "Arquitectura" },
+    ],
 
     problem:
-      "La operacion requeria una mejor organizacion de procesos y una estructura mas clara para administrar informacion del dominio ganadero.",
+      "El proyecto buscaba resolver, desde un contexto educativo, la organizacion basica de un establecimiento tipo feedlot: administrar bovinos, corrales, dietas, pesajes y el seguimiento de metricas por corral.",
 
     solution:
-      "Participe en tareas de analisis, diseno e implementacion backend para apoyar la construccion de un sistema de gestion mas ordenado y alineado al negocio.",
+      "Participe como desarrollador backend, modelando reglas del dominio, persistencia en SQLite y servicios para que la aplicacion pudiera registrar animales, asociarlos a corrales, gestionar dietas y consultar informacion operativa.",
 
-    architecture: null,
+    architecture: {
+      title: "Arquitectura por capas en TypeScript",
+      description:
+        "LotManager fue implementado con TypeScript, Next.js y React, usando SQLite como base de datos. El backend se organizo por capas para separar acceso a datos, logica de negocio y exposicion de funcionalidades, una decision clave para ordenar el primer proyecto y facilitar su mantenimiento.",
+      layers: [
+        {
+          step: "01",
+          name: "Dominio ganadero",
+          description:
+            "Representa bovinos, corrales, dietas, pesajes y metricas asociadas a la operacion diaria.",
+        },
+        {
+          step: "02",
+          name: "Servicios backend",
+          description:
+            "Centralizan reglas de negocio y coordinan las operaciones principales del sistema.",
+        },
+        {
+          step: "03",
+          name: "Persistencia",
+          description:
+            "Utiliza SQLite para almacenar datos del proyecto de forma simple y adecuada al alcance educativo.",
+        },
+        {
+          step: "04",
+          name: "Interfaz web",
+          description:
+            "Next.js y React conectan la experiencia de usuario con las funcionalidades del backend.",
+        },
+      ],
+      flow: "Next.js + React -> Servicios TypeScript -> SQLite",
+    },
 
     stack: [
       {
         name: "Rol",
         description:
-          "Participacion como desarrollador backend en analisis, diseno e implementacion.",
+          "Me desempene como desarrollador backend, enfocado en modelado de datos, servicios y logica de negocio.",
+      },
+      {
+        name: "Backend",
+        description:
+          "TypeScript para implementar funcionalidades del dominio ganadero con una estructura por capas.",
+      },
+      {
+        name: "Base de datos",
+        description:
+          "SQLite para persistir bovinos, corrales, dietas, pesajes y metricas del sistema.",
+      },
+      {
+        name: "Repositorio",
+        description:
+          "Proyecto publico disponible en github.com/LotManager/lotmanager-proyect.",
       },
     ],
     i18n: {
       en: {
-        title: "Cattle Management System",
-        status: "Backend experience",
+        title: "LotManager",
+        status: "Educational project",
         shortDescription:
-          "Participation in analysis, design and backend implementation for a feedlot management system focused on operational organization and domain process support.",
-        tags: ["Backend", "Analysis", "Design", "Business logic"],
-        metrics: [],
+          "Cattle management system focused on pens, diets, weigh-ins and operational metrics for each pen, built as a first educational project.",
+        tags: ["TypeScript", "Next.js", "React", "SQLite", "Backend"],
+        metrics: [
+          { value: "4", label: "Key domains" },
+          { value: "SQLite", label: "Database" },
+          { value: "Backend", label: "Main role" },
+          { value: "Layers", label: "Architecture" },
+        ],
         problem:
-          "The operation required better process organization and a clearer structure for managing cattle domain information.",
+          "The project aimed to solve, in an educational context, the basic organization of a feedlot operation: managing cattle, pens, diets, weigh-ins and pen-level metrics.",
         solution:
-          "I contributed to backend analysis, design and implementation to support a more organized management system aligned with business needs.",
-        architecture: null,
+          "I worked as a backend developer, modeling domain rules, SQLite persistence and services so the application could register animals, assign them to pens, manage diets and query operational information.",
+        architecture: {
+          title: "Layered architecture in TypeScript",
+          description:
+            "LotManager was implemented with TypeScript, Next.js and React, using SQLite as its database. The backend followed a layered structure to separate data access, business logic and feature exposure, an important decision for organizing a first project and making it easier to maintain.",
+          layers: [
+            {
+              step: "01",
+              name: "Cattle domain",
+              description:
+                "Represents cattle, pens, diets, weigh-ins and metrics tied to daily operations.",
+            },
+            {
+              step: "02",
+              name: "Backend services",
+              description:
+                "Centralize business rules and coordinate the main system operations.",
+            },
+            {
+              step: "03",
+              name: "Persistence",
+              description:
+                "Uses SQLite to store project data in a simple way aligned with its educational scope.",
+            },
+            {
+              step: "04",
+              name: "Web interface",
+              description:
+                "Next.js and React connect the user experience with backend functionality.",
+            },
+          ],
+          flow: "Next.js + React -> TypeScript services -> SQLite",
+        },
         stack: [
           {
             name: "Role",
             description:
-              "Backend developer participation across analysis, design and implementation tasks.",
+              "I worked as a backend developer, focused on data modeling, services and business logic.",
+          },
+          {
+            name: "Backend",
+            description:
+              "TypeScript for implementing cattle domain functionality with a layered structure.",
+          },
+          {
+            name: "Database",
+            description:
+              "SQLite to persist cattle, pens, diets, weigh-ins and system metrics.",
+          },
+          {
+            name: "Repository",
+            description:
+              "Public project available at github.com/LotManager/lotmanager-proyect.",
           },
         ],
       },
