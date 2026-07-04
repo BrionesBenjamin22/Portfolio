@@ -1,6 +1,6 @@
 services:
   portfolio:
-    image: ghcr.io/brionesbenjamin22/proto-photon:v1
+    image: ghcr.io/brionesbenjamin22/portfolio:v1
     container_name: portfolio-web
     ports:
       - "8080:8080"
