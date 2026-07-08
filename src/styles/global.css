@@ -77,3 +77,19 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
+
+.theme-toggle-sun {
+  display: block;
+}
+
+.theme-toggle-moon {
+  display: none;
+}
+
+html.dark .theme-toggle-sun {
+  display: none;
+}
+
+html.dark .theme-toggle-moon {
+  display: block;
+}

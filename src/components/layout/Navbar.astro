@@ -3,7 +3,6 @@ const pathname = Astro.url.pathname;
 
 const links = [
   { href: "/sobre-mi", label: "Sobre mí", labelEn: "About" },
-  { href: "/#stack", label: "Stack", labelEn: "Stack" },
   { href: "/proyectos", label: "Proyectos", labelEn: "Projects" },
 ];
 ---
@@ -42,12 +41,23 @@ const links = [
       <button
         type="button"
         id="theme-toggle"
-        class="focus-ring link-quiet rounded-full border border-line px-3 py-1 text-xs"
+        class="focus-ring link-quiet inline-flex h-8 w-8 items-center justify-center rounded-full border border-line"
         aria-label="Cambiar tema"
-        data-lang-es="Tema"
-        data-lang-en="Theme"
       >
-        Tema
+        <svg aria-hidden="true" class="theme-toggle-sun h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2" />
+          <path d="M12 20v2" />
+          <path d="m4.93 4.93 1.41 1.41" />
+          <path d="m17.66 17.66 1.41 1.41" />
+          <path d="M2 12h2" />
+          <path d="M20 12h2" />
+          <path d="m6.34 17.66-1.41 1.41" />
+          <path d="m19.07 4.93-1.41 1.41" />
+        </svg>
+        <svg aria-hidden="true" class="theme-toggle-moon h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.99 13.36A8.99 8.99 0 0 1 10.64 3.01 7 7 0 1 0 20.99 13.36Z" />
+        </svg>
       </button>
     </nav>
   </div>

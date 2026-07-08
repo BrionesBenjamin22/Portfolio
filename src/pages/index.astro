@@ -1,32 +1,5 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-
-const stackGroups = [
-  {
-    title: "Backend",
-    titleEn: "Backend",
-    items: "Python, Flask, Django, NestJS, APIs REST",
-    itemsEn: "Python, Flask, Django, NestJS, REST APIs",
-  },
-  {
-    title: "Frontend",
-    titleEn: "Frontend",
-    items: "React, Next.js, Astro, TypeScript",
-    itemsEn: "React, Next.js, Astro, TypeScript",
-  },
-  {
-    title: "Cloud y DevOps",
-    titleEn: "Cloud and DevOps",
-    items: "Docker, CI/CD, observabilidad, fundamentos AWS",
-    itemsEn: "Docker, CI/CD, observability, AWS fundamentals",
-  },
-  {
-    title: "Datos",
-    titleEn: "Data",
-    items: "PostgreSQL, SQLite, Prisma, modelado relacional",
-    itemsEn: "PostgreSQL, SQLite, Prisma, relational modeling",
-  },
-];
 ---
 
 <MainLayout>
@@ -91,25 +64,23 @@ const stackGroups = [
     </div>
   </section>
 
-  <section id="stack" class="mt-24">
+  <section class="mt-24 max-w-3xl">
     <div class="max-w-3xl">
       <h2 class="text-2xl font-semibold tracking-tight" data-lang-es="Stack" data-lang-en="Stack">Stack</h2>
       <p
         class="mt-4 leading-7 text-muted"
-        data-lang-es="Tecnologías y áreas que uso o estoy profundizando en proyectos personales, académicos y de formación."
-        data-lang-en="Technologies and areas I use or continue to deepen through personal, academic and training projects."
+        data-lang-es="Trabajo principalmente con Python, TypeScript y bases de datos relacionales. En backend uso Flask, Django y NestJS para construir APIs y organizar lógica de negocio; en frontend trabajo con React, Next.js y Astro cuando el proyecto necesita una interfaz clara y mantenible."
+        data-lang-en="I mainly work with Python, TypeScript and relational databases. On the backend I use Flask, Django and NestJS to build APIs and organize business logic; on the frontend I work with React, Next.js and Astro when a project needs a clear and maintainable interface."
       >
-        Tecnologías y áreas que uso o estoy profundizando en proyectos personales, académicos y de formación.
+        Trabajo principalmente con Python, TypeScript y bases de datos relacionales. En backend uso Flask, Django y NestJS para construir APIs y organizar lógica de negocio; en frontend trabajo con React, Next.js y Astro cuando el proyecto necesita una interfaz clara y mantenible.
       </p>
-    </div>
-
-    <div class="mt-8 grid gap-6 md:grid-cols-2">
-      {stackGroups.map((group) => (
-        <article class="border-t border-line pt-5">
-          <h3 class="font-medium" data-lang-es={group.title} data-lang-en={group.titleEn}>{group.title}</h3>
-          <p class="mt-2 leading-7 text-muted" data-lang-es={group.items} data-lang-en={group.itemsEn}>{group.items}</p>
-        </article>
-      ))}
+      <p
+        class="mt-5 leading-7 text-muted"
+        data-lang-es="Mi formación actual está orientada a cloud y DevOps: Docker, CI/CD, observabilidad, fundamentos de AWS y operación de entornos. La intención no es acumular herramientas, sino entender cómo se diseñan, despliegan y mantienen sistemas que puedan evolucionar."
+        data-lang-en="My current training is oriented toward cloud and DevOps: Docker, CI/CD, observability, AWS fundamentals and environment operations. The goal is not to accumulate tools, but to understand how systems are designed, deployed and maintained so they can evolve."
+      >
+        Mi formación actual está orientada a cloud y DevOps: Docker, CI/CD, observabilidad, fundamentos de AWS y operación de entornos. La intención no es acumular herramientas, sino entender cómo se diseñan, despliegan y mantienen sistemas que puedan evolucionar.
+      </p>
     </div>
   </section>
 </MainLayout>
