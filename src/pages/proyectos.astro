@@ -1,0 +1,78 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const projects = [
+  {
+    title: "Sistema de Gestión de Memorias Académicas",
+    titleEn: "Academic Reports Management System",
+    context: "Sistema para laboratorios universitarios orientado a centralizar información y generar memorias académicas.",
+    contextEn: "System for university laboratories focused on centralizing information and generating academic reports.",
+    role: "Desarrollo de la solución y participación en decisiones de arquitectura.",
+    roleEn: "Solution development and participation in architecture decisions.",
+    stack: "React, TypeScript, Flask, PostgreSQL",
+  },
+  {
+    title: "Deskly",
+    titleEn: "Deskly",
+    context: "Aplicación mobile-first para consulta de disponibilidad y gestión de reservas en espacios de coworking.",
+    contextEn: "Mobile-first application for checking availability and managing reservations in coworking spaces.",
+    role: "Desarrollo con enfoque spec-driven y backend organizado con arquitectura hexagonal.",
+    roleEn: "Development with a spec-driven approach and backend organized around hexagonal architecture.",
+    stack: "React Native, Expo, NestJS, PostgreSQL",
+  },
+  {
+    title: "LotManager",
+    titleEn: "LotManager",
+    context: "Prototipo para gestión operativa de feedlots, con foco en bovinos, corrales, sanidad y métricas.",
+    contextEn: "Prototype for feedlot operations management, focused on cattle, pens, health and metrics.",
+    role: "Desarrollo backend, modelado de datos y reglas de negocio.",
+    roleEn: "Backend development, data modeling and business rules.",
+    stack: "Next.js, Express, Prisma, SQLite",
+  },
+];
+---
+
+<MainLayout
+  title="Proyectos | Benjamín Briones"
+  description="Proyectos de software desarrollados por Benjamín Briones."
+>
+  <section class="max-w-3xl">
+    <p class="mb-6 text-sm uppercase tracking-[0.24em] text-subtle" data-lang-es="Proyectos" data-lang-en="Projects">
+      Proyectos
+    </p>
+
+    <h1 class="text-4xl font-semibold tracking-tight md:text-6xl" data-lang-es="Sistemas desarrollados con foco técnico." data-lang-en="Systems built with a technical focus.">
+      Sistemas desarrollados con foco técnico.
+    </h1>
+
+    <p
+      class="mt-8 text-lg leading-8 text-muted"
+      data-lang-es="Una selección de proyectos académicos y personales donde trabajé sobre backend, arquitectura, datos, interfaces web y mobile."
+      data-lang-en="A selection of academic and personal projects where I worked on backend, architecture, data, web and mobile interfaces."
+    >
+      Una selección de proyectos académicos y personales donde trabajé sobre backend, arquitectura, datos, interfaces web y mobile.
+    </p>
+  </section>
+
+  <section class="mt-14 divide-y divide-[var(--line)]">
+    {projects.map((project) => (
+      <article class="grid gap-6 py-8 md:grid-cols-[14rem_1fr]">
+        <div>
+          <h2 class="text-xl font-semibold" data-lang-es={project.title} data-lang-en={project.titleEn}>
+            {project.title}
+          </h2>
+          <p class="mt-2 text-sm text-subtle">{project.stack}</p>
+        </div>
+
+        <div class="space-y-4 leading-7 text-muted">
+          <p data-lang-es={project.context} data-lang-en={project.contextEn}>
+            {project.context}
+          </p>
+          <p data-lang-es={project.role} data-lang-en={project.roleEn}>
+            {project.role}
+          </p>
+        </div>
+      </article>
+    ))}
+  </section>
+</MainLayout>
