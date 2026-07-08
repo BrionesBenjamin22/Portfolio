@@ -1,81 +1,115 @@
 ---
-import "../styles/global.css";
 import MainLayout from "../layouts/MainLayout.astro";
-import ProjectsOverview from "../components/sections/ProjectsOverview.astro";
-import ProjectDetail from "../components/sections/ProjectDetail.astro";
-import ContactSection from "../components/sections/ContactSection.astro";
-import InfoCard from "../components/ui/InfoCard.astro";
-import CareerSection from "../components/sections/CareerSection.astro";
+
+const stackGroups = [
+  {
+    title: "Backend",
+    titleEn: "Backend",
+    items: "Python, Flask, Django, NestJS, APIs REST",
+    itemsEn: "Python, Flask, Django, NestJS, REST APIs",
+  },
+  {
+    title: "Frontend",
+    titleEn: "Frontend",
+    items: "React, Next.js, Astro, TypeScript",
+    itemsEn: "React, Next.js, Astro, TypeScript",
+  },
+  {
+    title: "Cloud y DevOps",
+    titleEn: "Cloud and DevOps",
+    items: "Docker, CI/CD, observabilidad, fundamentos AWS",
+    itemsEn: "Docker, CI/CD, observability, AWS fundamentals",
+  },
+  {
+    title: "Datos",
+    titleEn: "Data",
+    items: "PostgreSQL, SQLite, Prisma, modelado relacional",
+    itemsEn: "PostgreSQL, SQLite, Prisma, relational modeling",
+  },
+];
 ---
 
 <MainLayout>
-  <section class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end">
-    <div class="space-y-8">
-      <h1 class="text-5xl font-bold tracking-tight">
-        Benjamín Briones
-      </h1>
+  <section class="max-w-3xl">
+    <p
+      class="mb-6 text-sm uppercase tracking-[0.24em] text-subtle"
+      data-lang-es="Desarrollador de software"
+      data-lang-en="Software developer"
+    >
+      Desarrollador de software
+    </p>
 
-      <p
-        class="max-w-xl text-xl leading-relaxed text-slate-300"
-        data-lang-es="Desarrollador de Software"
-        data-lang-en="Software Developer"
-      >
-        Desarrollador de Software
-      </p>
+    <h1 class="text-5xl font-semibold tracking-tight md:text-7xl">
+      Benjamín Briones
+    </h1>
 
-      <p
-        class="max-w-xl leading-relaxed text-slate-400"
-        data-lang-es="Estudiante avanzado de Ingeniería en Sistemas, con experiencia en el desarrollo de aplicaciones web y APIs."
-        data-lang-en="Advanced Systems Engineering student with experience building web applications and APIs."
-      >
-        Estudiante avanzado de Ingeniería en Sistemas, con experiencia en el
-        desarrollo de aplicaciones web y APIs.
-      </p>
+    <p
+      class="mt-8 max-w-2xl text-xl leading-8 text-muted"
+      data-lang-es="Estudiante avanzado de Ingeniería en Sistemas de Información y desarrollador de software, orientando mi perfil hacia backend, DevOps y tecnologías cloud."
+      data-lang-en="Advanced Information Systems Engineering student and software developer, shaping my profile toward backend, DevOps and cloud technologies."
+    >
+      Estudiante avanzado de Ingeniería en Sistemas de Información y desarrollador de software, orientando mi perfil hacia backend, DevOps y tecnologías cloud.
+    </p>
 
-      <p
-        class="max-w-xl leading-relaxed text-slate-400"
-        data-lang-es="He desarrollado proyectos con Python y TypeScript utilizando React, Next.js, NestJS, Flask y Django. Actualmente profundizo en arquitectura de software, desarrollo frontend, DevOps, Docker, infraestructura cloud y seguridad aplicada."
-        data-lang-en="I have built projects with Python and TypeScript using React, Next.js, NestJS, Flask and Django. I am currently deepening my knowledge of software architecture, frontend development, DevOps, Docker, cloud infrastructure and applied security."
-      >
-        He desarrollado proyectos con Python y TypeScript utilizando React,
-        Next.js, NestJS, Flask y Django. Actualmente profundizo en arquitectura
-        de software, desarrollo frontend, DevOps, Docker, infraestructura cloud
-        y seguridad aplicada.
-      </p>
+    <p
+      class="mt-5 max-w-2xl leading-7 text-muted"
+      data-lang-es="Actualmente me encuentro en etapa de preparación final para rendir la certificación AWS CloudOps Engineer - Associate, como parte de mi formación en operación, despliegue y mantenimiento de entornos cloud."
+      data-lang-en="I am currently in the final preparation stage for the AWS CloudOps Engineer - Associate certification, as part of my training in cloud operations, deployment and environment maintenance."
+    >
+      Actualmente me encuentro en etapa de preparación final para rendir la certificación AWS CloudOps Engineer - Associate, como parte de mi formación en operación, despliegue y mantenimiento de entornos cloud.
+    </p>
 
-      <div class="flex flex-wrap gap-3 pt-2 text-sm text-slate-300">
-        {['Git', 'APIs REST', 'Docker', 'Kubernetes', 'CI/CD', 'Cloud'].map((technology) => (
-          <span class="rounded-full border border-slate-700 px-3 py-1">
-            {technology}
-          </span>
-        ))}
-      </div>
+    <div class="mt-8 flex items-center gap-3" aria-label="Links sociales">
+      <a class="focus-ring link-quiet rounded-full border border-line p-3" href="https://github.com/BrionesBenjamin22" target="_blank" rel="noreferrer" aria-label="GitHub">
+        <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+      </a>
+      <a class="focus-ring link-quiet rounded-full border border-line p-3" href="https://www.linkedin.com/in/benjam%C3%ADn-briones-784375326/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v2a6 6 0 0 1 5-3Z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
+      </a>
+      <a class="focus-ring link-quiet rounded-full border border-line p-3" href="mailto:benja.briones004@gmail.com" aria-label="Mail">
+        <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+      </a>
     </div>
-
-    <InfoCard className="p-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-slate-500"
-        data-lang-es="Enfoque actual"
-        data-lang-en="Current focus"
-      >Enfoque actual</p>
-      <h2
-        class="mt-3 text-xl font-semibold text-slate-100"
-        data-lang-es="Backend y plataforma"
-        data-lang-en="Backend and platform"
-      >Backend y plataforma</h2>
-      <p
-        class="mt-4 leading-7 text-slate-400"
-        data-lang-es="Construcción de servicios mantenibles y preparación de entornos para su despliegue, operación y evolución."
-        data-lang-en="Building maintainable services and preparing environments for deployment, operation and evolution."
-      >
-        Construcción de servicios mantenibles y preparación de entornos para su
-        despliegue, operación y evolución.
-      </p>
-    </InfoCard>
   </section>
 
-  <ProjectsOverview />
-  <ProjectDetail />
-  <CareerSection />
-  <ContactSection />
+  <section id="carrera" class="mt-24 max-w-3xl">
+    <h2 class="text-2xl font-semibold tracking-tight" data-lang-es="Formación actual" data-lang-en="Current education">
+      Formación actual
+    </h2>
+
+    <div class="mt-8 border-l border-line pl-6">
+      <article class="relative pb-2">
+        <span class="absolute -left-[31px] top-1 h-3 w-3 rounded-full border border-line" style="background: var(--bg);"></span>
+        <p class="text-sm text-subtle" data-lang-es="2022 - Presente" data-lang-en="2022 - Present">2022 - Presente</p>
+        <h3 class="mt-2 text-xl font-medium" data-lang-es="Ingeniería en Sistemas de Información" data-lang-en="Information Systems Engineering">
+          Ingeniería en Sistemas de Información
+        </h3>
+        <p class="mt-2 leading-7 text-muted" data-lang-es="Universidad Tecnológica Nacional - Facultad Regional La Plata" data-lang-en="National Technological University - La Plata Regional Faculty">
+          Universidad Tecnológica Nacional - Facultad Regional La Plata
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="stack" class="mt-24">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl font-semibold tracking-tight" data-lang-es="Stack" data-lang-en="Stack">Stack</h2>
+      <p
+        class="mt-4 leading-7 text-muted"
+        data-lang-es="Tecnologías y áreas que uso o estoy profundizando en proyectos personales, académicos y de formación."
+        data-lang-en="Technologies and areas I use or continue to deepen through personal, academic and training projects."
+      >
+        Tecnologías y áreas que uso o estoy profundizando en proyectos personales, académicos y de formación.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      {stackGroups.map((group) => (
+        <article class="border-t border-line pt-5">
+          <h3 class="font-medium" data-lang-es={group.title} data-lang-en={group.titleEn}>{group.title}</h3>
+          <p class="mt-2 leading-7 text-muted" data-lang-es={group.items} data-lang-en={group.itemsEn}>{group.items}</p>
+        </article>
+      ))}
+    </div>
+  </section>
 </MainLayout>
