@@ -10,6 +10,7 @@ const projects = [
     role: "Desarrollo de la solución y participación en decisiones de arquitectura.",
     roleEn: "Solution development and participation in architecture decisions.",
     stack: "React, TypeScript, Flask, PostgreSQL",
+    repositoryUrl: "https://github.com/BrionesBenjamin22/SGM-GIDAS",
   },
   {
     title: "Deskly",
@@ -19,6 +20,7 @@ const projects = [
     role: "Desarrollo con enfoque spec-driven y backend organizado con arquitectura hexagonal.",
     roleEn: "Development with a spec-driven approach and backend organized around hexagonal architecture.",
     stack: "React Native, Expo, NestJS, PostgreSQL",
+    repositoryUrl: "https://github.com/BrionesBenjamin22/Deskly-Mobile",
   },
   {
     title: "LotManager",
@@ -28,6 +30,7 @@ const projects = [
     role: "Desarrollo backend, modelado de datos y reglas de negocio.",
     roleEn: "Backend development, data modeling and business rules.",
     stack: "Next.js, Express, Prisma, SQLite",
+    repositoryUrl: "https://github.com/LotManager/lotmanager-proyect",
   },
 ];
 ---
@@ -56,23 +59,38 @@ const projects = [
 
   <section class="mt-14 divide-y divide-[var(--line)]">
     {projects.map((project) => (
-      <article class="grid gap-6 py-8 md:grid-cols-[14rem_1fr]">
-        <div>
-          <h2 class="text-xl font-semibold" data-lang-es={project.title} data-lang-en={project.titleEn}>
-            {project.title}
-          </h2>
-          <p class="mt-2 text-sm text-subtle">{project.stack}</p>
-        </div>
+      <a
+        class="focus-ring group block rounded-xl transition-colors hover:bg-[var(--surface)]"
+        href={project.repositoryUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Ver ${project.title} en GitHub`}
+      >
+        <article class="grid gap-6 px-4 py-8 md:grid-cols-[14rem_1fr]">
+          <div>
+            <h2 class="text-xl font-semibold transition-colors group-hover:text-[var(--accent)]" data-lang-es={project.title} data-lang-en={project.titleEn}>
+              {project.title}
+            </h2>
+            <p class="mt-2 text-sm text-subtle">{project.stack}</p>
+          </div>
 
-        <div class="space-y-4 leading-7 text-muted">
-          <p data-lang-es={project.context} data-lang-en={project.contextEn}>
-            {project.context}
-          </p>
-          <p data-lang-es={project.role} data-lang-en={project.roleEn}>
-            {project.role}
-          </p>
-        </div>
-      </article>
+          <div class="space-y-4 leading-7 text-muted">
+            <p data-lang-es={project.context} data-lang-en={project.contextEn}>
+              {project.context}
+            </p>
+            <p data-lang-es={project.role} data-lang-en={project.roleEn}>
+              {project.role}
+            </p>
+            <span
+              class="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent)]"
+              data-lang-es="Ver repositorio en GitHub ↗"
+              data-lang-en="View repository on GitHub ↗"
+            >
+              Ver repositorio en GitHub ↗
+            </span>
+          </div>
+        </article>
+      </a>
     ))}
   </section>
 </MainLayout>
